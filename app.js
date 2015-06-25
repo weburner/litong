@@ -23,6 +23,10 @@ angular.module('app', ['ionic'])
                 url: '/verifying-user',
                 templateUrl: 'template/verifying-user.html'
             })
+            .state('manageUser', {
+                url: '/manage-user',
+                templateUrl: 'template/manage-user.html'
+            })
             .state('qrCard', {
                 url: '/qr-card',
                 templateUrl: 'template/qr-card.html'
