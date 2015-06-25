@@ -39,9 +39,13 @@ angular.module('app', ['ionic'])
                 url: '/verifying-visitor',
                 templateUrl: 'template/verifying-visitor.html'
             })
-            .state('qrCard', {
-                url: '/qr-card',
-                templateUrl: 'template/qr-card.html'
+            .state('qrCardUser', {
+                url: '/qr-card-user',
+                templateUrl: 'template/qr-card-user.html'
+            })
+            .state('qrCardVisitor', {
+                url: '/qr-card-visitor',
+                templateUrl: 'template/qr-card-visitor.html'
             })
         ;
 
