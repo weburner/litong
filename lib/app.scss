@@ -20,11 +20,16 @@ $dark:                            #444 !default;
 // Note that it’s before we load the rest of Ionic.
 // This is important!
 //$light:                          transparent !default;
-$positive:                        #387ef5 !default;
-$balanced:                        #33cd5f !default;
+$positive:                        #47A0DB !default;
+$balanced:                        #88C057 !default;
 
 $bar-height:                      220px !default;
 $bar-subheader-height:            44px !default;
+
+$button-large-font-size:          12px !default;
+$button-large-height:             60px !default;
+$button-large-padding:            16px !default;
+
 // Include all of Ionic.
 @import "scss/ionic";
 
@@ -33,6 +38,7 @@ $bar-subheader-height:            44px !default;
   right:0 !important;
   margin: 0;
 }
+
 .user-avatar{
   margin: 0 auto;
   width:100px;
@@ -43,9 +49,11 @@ $bar-subheader-height:            44px !default;
 .user-avatar-large{
 
 }
+
 .user-avatar-small{
 
 }
+
 .image-icon{
   padding-top: 18px;
   width: 20px;
