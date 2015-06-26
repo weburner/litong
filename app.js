@@ -5,11 +5,14 @@ angular.module('app', ['ionic'])
                 url: '/landing',
                 templateUrl: 'template/landing.html'
             })
-            .state('signupVisiter', {
-                url: '/signup-visiter',
-                templateUrl: 'template/signup-visiter.html'
+            .state('signupVisitor', {
+                url: '/signup-visitor',
+                templateUrl: 'template/signup-visitor.html'
             })
-
+            .state('invitationVisitor', {
+                url: '/invitation-visitor',
+                templateUrl: 'template/invitation-form.html'
+            })
             .state('signupUser', {
                 url: '/signup-user',
                 templateUrl: 'template/signup-user.html'

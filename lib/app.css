@@ -8923,3 +8923,6 @@ a.button {
 #landing .button-bar {
   bottom: 0;
   position: absolute; }
+
+.default-bar-header {
+  height: 44px; }
