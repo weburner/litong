@@ -20,41 +20,61 @@ $dark:                            #444 !default;
 // Note that it’s before we load the rest of Ionic.
 // This is important!
 //$light:                          transparent !default;
-$positive:                        #47A0DB !default;
-$balanced:                        #88C057 !default;
+$positive: #47A0DB !default;
+$balanced: #88C057 !default;
 
-$bar-height:                      220px !default;
-$bar-subheader-height:            44px !default;
+$bar-height: 220px !default;
+$bar-subheader-height: 44px !default;
 
-$button-large-font-size:          12px !default;
-$button-large-height:             60px !default;
-$button-large-padding:            16px !default;
+$button-block-margin: 0 !default;
+$button-border-radius: 0 !default;
+$button-border-width: 0 !default;
+
+$button-large-font-size: 12px !default;
+$button-large-height: 60px !default;
+$button-large-padding: 16px !default;
 
 // Include all of Ionic.
 @import "scss/ionic";
 
 .bar .title {
-  left:0 !important;
-  right:0 !important;
+  left: 0 !important;
+  right: 0 !important;
   margin: 0;
 }
 
-.user-avatar{
+// cover image
+.cover-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+// button
+.button-bar > .button {
+  border: none;
+}
+
+// avatar
+.user-avatar {
   margin: 0 auto;
-  width:100px;
-  height:100px;
-  border-radius:100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
   background-image: url(img/avatar-img.png);
 }
 .user-avatar-large{
 
-}
-
-.user-avatar-small{
+.user-avatar-large {
 
 }
 
-.image-icon{
+.user-avatar-small {
+
+}
+
+// icon
+.image-icon {
   padding-top: 18px;
   width: 20px;
   display: inline-block;
@@ -66,3 +86,25 @@ $button-large-padding:            16px !default;
   flex-direction: column;
 }
 
+
+// spacer
+.spacer-200 {
+  height: 200px;
+}
+
+// css for every template
+/* landing */
+#landing {
+  color: #ffffff;
+}
+
+#landing .row .col img {
+  width: 55px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+#landing .button-bar {
+  bottom: 0;
+  position: absolute;
+}
