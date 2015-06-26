@@ -1,20 +1,17 @@
-
-<ion-view>
-    <ion-content padding="true" scroll="false" hide-nav-bar="true">
+<ion-view id="landing">
+    <ion-content padding="true" scroll="false" hide-nav-bar="true" class="cover-image" style="background-image: url('img/landing-bg.jpg')">
         <div class="row row-center" style="height: 100%;">
-            <div class="col">
-                <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
-                    <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-                </div>
-                <div class="spacer" style="height: 200px;"></div>
+            <div class="col text-center">
+                <img src="img/logo.svg">
+                <div>叩叩微信访客系统™</div>
+                <div class="spacer-200"></div>
             </div>
         </div>
     </ion-content>
-    <div class="button-bar" style="bottom: 0; position: absolute;">
+    <div class="button-bar">
         <a href="#/signup-user" nav-direction="forward" class="button button-large button-balanced button-block ">
-            <img src="img/avatar-img.png" class="image-icon"/>
             申请成为员工
         </a>
-        <a href="#/signup-visiter" nav-direction="forward" class="button button-positive button-block ">申请成为访客</a>
+        <a href="#/signup-visiter" nav-direction="forward" class="button button-large button-positive button-block ">申请成为访客</a>
     </div>
 </ion-view>
