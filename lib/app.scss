@@ -22,16 +22,30 @@ $dark:                            #444 !default;
 $positive: #47A0DB !default;
 $balanced: #88C057 !default;
 
+$base-color: #546979 !default;
+
 $bar-height: 220px !default;
 $bar-subheader-height: 44px !default;
+
+// overwrote button styles in ionic
+$button-font-size: 12px !default;
+$button-height: 40px !default;
+$button-padding: 12px !default;
+
+$button-large-font-size: 12px !default;
+$button-large-height: 60px !default;
+$button-large-padding: 16px !default;
+
+$button-small-font-size: 12px !default;
+$button-small-height: 30px !default;
+$button-small-padding: 10px !default;
 
 $button-block-margin: 0 !default;
 $button-border-radius: 0 !default;
 $button-border-width: 0 !default;
 
-$button-large-font-size: 12px !default;
-$button-large-height: 60px !default;
-$button-large-padding: 16px !default;
+$item-button-font-size: 12px !default;
+$item-button-line-height: 30px !default;
 
 // Include all of Ionic.
 @import "scss/ionic";
@@ -54,24 +68,56 @@ $button-large-padding: 16px !default;
   border: none;
 }
 
+.button-small {
+  border-radius: 3px;
+}
+
+.button-light {
+  border: 2px solid #DADADA;
+  border-radius: 3px;
+  color: #546979;
+}
+
+.button.button-block.btn-submit {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 // avatar
-.user-avatar {
+.avatar {
   margin: 0 auto;
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  background-image: url(img/avatar-img.png);
+}
+
+.avatar-bg {
+  width: 120px;
+  height: 120px;
+  background-image: url('../img/avatar-bg.svg');
+}
+
+.user-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
 }
 
 .user-avatar-large {
-
+  width: 90px;
+  height: 90px;
+  border-radius: 45x;
 }
 
 .user-avatar-small {
-
+  width: 50px;
+  height: 50px;
+  border-radius: 25px
 }
 
 // icon
+.nav-icon {
+  width: 44px;
+  height: auto;
+}
+
 .image-icon {
   padding-top: 18px;
   width: 20px;
@@ -80,11 +126,30 @@ $button-large-padding: 16px !default;
 }
 
 // spacer
-.spacer-200 {
-  height: 200px;
+.spacer-150 {
+  height: 150px;
+}
+
+.spacer-30 {
+  height: 30px;
+}
+
+// list item
+.border-bottom {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 0;
+  border-color: #CCCCCC;
 }
 
 // css for every template
+/* basic */
+.brand {
+  font-size: 12px;
+  opacity: 0.4;
+}
+
 /* landing */
 #landing {
   color: #ffffff;
@@ -99,4 +164,29 @@ $button-large-padding: 16px !default;
 #landing .button-bar {
   bottom: 0;
   position: absolute;
+}
+
+/* signup-user */
+.title h4 {
+  color: #ffffff;
+}
+
+.input-label, .item-select select {
+  color: #546979;
+  font-size: 12px;
+}
+
+.item-input, .item-select, .item-select select {
+  padding-top: 18px;
+  padding-bottom: 3px;
+}
+
+.item-select:after {
+  top: 42%;
+  content: url(../img/arrow-select.svg);
+  border: none;
+}
+
+.item-button-right > button {
+  top: 10px;
 }
