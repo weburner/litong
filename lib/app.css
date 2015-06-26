@@ -5967,8 +5967,8 @@ a.item-content {
   position: absolute;
   top: 8px;
   left: 11px;
-  min-width: 34px;
-  min-height: 34px;
+  min-width: 32px;
+  min-height: 32px;
   font-size: 18px;
   line-height: 32px; }
   .item-button-left > .button .icon:before,
@@ -5980,7 +5980,7 @@ a.item-content {
   .item-button-left > .button > .button,
   .item-button-left .item-content > .button > .button {
     margin: 0px 2px;
-    min-height: 34px;
+    min-height: 32px;
     font-size: 18px;
     line-height: 32px; }
 
@@ -6007,8 +6007,8 @@ button.item.item-button-right {
   position: absolute;
   top: 8px;
   right: 16px;
-  min-width: 34px;
-  min-height: 34px;
+  min-width: 32px;
+  min-height: 32px;
   font-size: 18px;
   line-height: 32px; }
   .item-button-right > .button .icon:before,
@@ -6024,8 +6024,8 @@ button.item.item-button-right {
   .item-button-right > .buttons > .button,
   .item-button-right .item-content > .buttons > .button {
     margin: 0px 2px;
-    min-width: 34px;
-    min-height: 34px;
+    min-width: 32px;
+    min-height: 32px;
     font-size: 18px;
     line-height: 32px; }
 
@@ -7701,14 +7701,14 @@ progress {
   padding: 0 12px;
   min-width: 52px;
   min-height: 47px;
-  border-width: 1px;
+  border-width: 0;
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 0;
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;
   font-size: 16px;
-  line-height: 42px;
+  line-height: 43px;
   cursor: pointer; }
   .button:hover {
     color: #444444;
@@ -7729,10 +7729,10 @@ progress {
     pointer-events: none; }
   .button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before {
     display: inline-block;
-    padding: 0 0 1px 0;
+    padding: 0 0 0 0;
     vertical-align: inherit;
     font-size: 24px;
-    line-height: 41px;
+    line-height: 42px;
     pointer-events: none; }
   .button.icon-left:before {
     float: left;
@@ -7743,8 +7743,8 @@ progress {
     padding-right: 0;
     padding-left: .2em; }
   .button.button-block, .button.button-full {
-    margin-top: 10px;
-    margin-bottom: 10px; }
+    margin-top: 0;
+    margin-bottom: 0; }
   .button.button-light {
     border-color: #dddddd;
     background-color: white;
@@ -7994,7 +7994,7 @@ progress {
   min-width: 28px;
   min-height: 30px;
   font-size: 12px;
-  line-height: 26px; }
+  line-height: 27px; }
   .button-small .icon:before, .button-small.icon:before, .button-small.icon-left:before, .button-small.icon-right:before {
     font-size: 16px;
     line-height: 19px;
@@ -8005,11 +8005,11 @@ progress {
   min-width: 60px;
   min-height: 65px;
   font-size: 12px;
-  line-height: 59px; }
+  line-height: 60px; }
   .button-large .icon:before, .button-large.icon:before, .button-large.icon-left:before, .button-large.icon-right:before {
-    padding-bottom: 2px;
+    padding-bottom: 0;
     font-size: 32px;
-    line-height: 57px; }
+    line-height: 59px; }
 
 .button-icon {
   -webkit-transition: opacity 0.1s;
@@ -8147,10 +8147,10 @@ a.button {
   .button-bar > .button .icon:before {
     line-height: 44px; }
   .button-bar > .button:first-child {
-    border-radius: 2px 0px 0px 2px; }
+    border-radius: 0 0px 0px 0; }
   .button-bar > .button:last-child {
     border-right-width: 1px;
-    border-radius: 0px 2px 2px 0px; }
+    border-radius: 0px 0 0 0px; }
 
 .button-bar > .button-small:before,
 .button-bar > .button-small .icon:before {
@@ -8882,6 +8882,14 @@ a.button {
   right: 0 !important;
   margin: 0; }
 
+.cover-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.button-bar > .button {
+  border: none; }
+
 .user-avatar {
   margin: 0 auto;
   width: 100px;
@@ -8899,3 +8907,19 @@ a.button {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+
+.spacer-200 {
+  height: 200px; }
+
+/* landing */
+#landing {
+  color: #ffffff; }
+
+#landing .row .col img {
+  width: 55px;
+  height: auto;
+  margin-bottom: 30px; }
+
+#landing .button-bar {
+  bottom: 0;
+  position: absolute; }

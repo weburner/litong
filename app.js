@@ -106,7 +106,7 @@ angular.module('app', ['ionic'])
                 var starty = $scope.$eval($attr.headerShrink) || 0;
                 var shrinkAmt;
 
-                var header = $document[0].body.querySelector('.bar-header');
+                var header = $document[0].body.querySelector('.header-shrink-bar-header');
                 var headerHeight = header.offsetHeight;
 
                 $element.bind('scroll', function (e) {
@@ -146,7 +146,7 @@ angular.module('app', ['ionic'])
                 var starty = $scope.$eval($attr.headerShrink) || 0;
                 var shrinkAmt;
 
-                var header = $document[0].body.querySelector('.bar-header');
+                var header = $document[0].body.querySelector('.user-center-header');
                 var headerHeight = header.offsetHeight;
 
                 $element.bind('scroll', function (e) {
