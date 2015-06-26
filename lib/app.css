@@ -8991,5 +8991,5 @@ a.button {
   content: url(../img/arrow-select.svg);
   border: none; }
 
-.item-button-right > button {
+.item-button-right > .button {
   top: 10px; }
