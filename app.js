@@ -14,10 +14,36 @@ angular.module('app', ['ionic'])
                 url: '/signup-user',
                 templateUrl: 'template/signup-user.html'
             })
-
             .state('userCenter', {
                 url: '/user-center',
-                templateUrl: 'template/user-center.html'
+                templateUrl: 'template/user-center.html',
+                abstract : true
+            })
+            .state('userCenter.tabs', {
+                url: '/tabs',
+                abstract : true,
+                views: {
+                    'user-center': {
+                        templateUrl: 'template/user-center-tabs.html',
+                        controller:'UserCenterCtrl'
+                    }
+                }
+            })
+            .state('userCenter.tabs.ongoing', {
+                url: "/ongoing",
+                views: {
+                    'ongoing-tab': {
+                        templateUrl: "template/user-center-ongoing.html"
+                    }
+                }
+            })
+            .state('userCenter.tabs.visitor', {
+                url: "/visitor",
+                views: {
+                    'visitor-tab': {
+                        templateUrl: "template/user-center-visitor.html"
+                    }
+                }
             })
             .state('verifyingUser', {
                 url: '/verifying-user',
@@ -43,7 +69,7 @@ angular.module('app', ['ionic'])
 
         // if none of the above states are matched, use this as the fallback
 
-        $urlRouterProvider.otherwise('/landing');
+        $urlRouterProvider.otherwise('/user-center/tabs/ongoing');
 
 
     })
@@ -125,4 +151,16 @@ angular.module('app', ['ionic'])
                 });
             }
         };
-    });
+    })
+    .controller('UserCenterCtrl', function ($scope, $ionicScrollDelegate) {
+        setTimeout(function(){
+            $scope.onTabSelected = function(){
+                $ionicScrollDelegate.$getByHandle('tab-1-content').scrollTop(true);
+                $ionicScrollDelegate.$getByHandle('tab-2-content').scrollTop(true);
+
+            }
+        }, 100);
+
+
+    })
+;
