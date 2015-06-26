@@ -27,6 +27,8 @@ $base-color: #546979 !default;
 $bar-height: 220px !default;
 $bar-subheader-height: 44px !default;
 
+$bar-footer-height: 65px !default;
+
 // overwrote button styles in ionic
 $button-font-size: 12px !default;
 $button-height: 40px !default;
@@ -145,6 +147,16 @@ $item-button-line-height: 30px !default;
 
 // css for every template
 /* basic */
+.flex-vertical{
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.default-bar-header{
+  height: 44px;
+}
+
 .brand {
   font-size: 12px;
   opacity: 0.4;
