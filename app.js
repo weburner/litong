@@ -51,7 +51,8 @@ angular.module('app', ['ionic'])
             })
             .state('manageUser', {
                 url: '/manage-user',
-                templateUrl: 'template/manage-user.html'
+                templateUrl: 'template/manage-user.html',
+                controller:'AppCtrl'
             })
             .state('invitationUser', {
                 url: '/invitation-user',
@@ -160,6 +161,14 @@ angular.module('app', ['ionic'])
             }
         };
     })
+    .controller('AppCtrl', function ($scope, $window) {
+
+        $scope.goBackHistory = function(){
+            console.log('hi');
+            $window.history.back();
+
+        }
+    })
     .controller('UserCenterCtrl', function ($scope, $ionicScrollDelegate) {
         setTimeout(function(){
             $scope.onTabSelected = function(){
@@ -168,7 +177,5 @@ angular.module('app', ['ionic'])
 
             }
         }, 100);
-
-
     })
 ;

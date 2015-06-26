@@ -1,24 +1,35 @@
 <ion-view title="manage-user">
-    <ion-content padding="true" class="has-header">
 
-        <div style="text-align: center">
-            <img src="img/avatar-img.png"/>
-            <h3>
-                Victoria Gilson
-            </h3>
-            <p>
-                申请于6月18日访问贵公司
-            </p>
-            <h2>
-                12:30-17:30
-            </h2>
-            <button class="button button-stable button-block ">Call</button>
+    <ion-content scroll="false" class="no-header">
+        <button class="button button-clear icon ion-ios-arrow-thin-left" nav-direction="back" ng-click="goBackHistory()"></button>
+
+        <div class="row flex-vertical" style="text-align: center;height: 100%;">
+            <div class="col-10"></div>
+            <div class="col-30">
+                <img src="img/avatar-img.png"/>
+                <h3 class="">
+                    Victoria Gilson
+                </h3>
+                <p class="">
+                    申请于6月18日访问贵公司
+                </p>
+            </div>
+
+            <div class="col">
+                <h2>12:30-17:30</h2>
+                <button class="button button-large icon ion-android-call"></button>
+            </div>
+
+            <div class="col-30">
+                <div class="row" style="padding: 0;">
+                    <button class="col button button-stable" style="margin: 0 10px;">开启</button>
+                    <button class="col button button-stable" style="margin: 0 10px;">关闭</button>
+                </div>
+            </div>
+            <div class="col-10"></div>
         </div>
 
     </ion-content>
 
-    <div style="position: absolute; bottom: 20px;" class="button-bar">
-        <button class="button button-stable button-block ">开启</button>
-        <button class="button button-stable button-block ">关闭</button>
-    </div>
+
 </ion-view>
