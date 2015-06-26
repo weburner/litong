@@ -95,11 +95,7 @@ angular.module('app', ['ionic'])
             })
         ;
 
-        // if none of the above states are matched, use this as the fallback
-
-        $urlRouterProvider.otherwise('/user-center/visitor');
-
-
+        $urlRouterProvider.otherwise('/user-center/tabs/ongoing');
     })
     .directive('headerShrink', function ($document) {
         var fadeAmt;
@@ -193,7 +189,6 @@ angular.module('app', ['ionic'])
             $scope.onTabSelected = function(){
                 $ionicScrollDelegate.$getByHandle('tab-1-content').scrollTop(true);
                 $ionicScrollDelegate.$getByHandle('tab-2-content').scrollTop(true);
-
             }
         }, 100);
     })
