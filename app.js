@@ -5,11 +5,14 @@ angular.module('app', ['ionic'])
                 url: '/landing',
                 templateUrl: 'template/landing.html'
             })
-            .state('signupVisiter', {
-                url: '/signup-visiter',
-                templateUrl: 'template/signup-visiter.html'
+            .state('signupVisitor', {
+                url: '/signup-visitor',
+                templateUrl: 'template/signup-visitor.html'
             })
-
+            .state('invitationVisitor', {
+                url: '/invitation-visitor',
+                templateUrl: 'template/invitation-form.html'
+            })
             .state('signupUser', {
                 url: '/signup-user',
                 templateUrl: 'template/signup-user.html'
@@ -18,6 +21,14 @@ angular.module('app', ['ionic'])
                 url: '/user-center',
                 templateUrl: 'template/user-center.html',
                 abstract : true
+            })
+            .state('userCenter.landing', {
+                url: "/landing",
+                views: {
+                    'user-center': {
+                        templateUrl: "template/user-center-landing.html"
+                    }
+                }
             })
             .state('userCenter.tabs', {
                 url: '/tabs',
@@ -45,13 +56,22 @@ angular.module('app', ['ionic'])
                     }
                 }
             })
+            .state('userCenter.visitor', {
+                url: "/visitor",
+                views: {
+                    'user-center': {
+                        templateUrl: "template/visitor-center.html"
+                    }
+                }
+            })
             .state('verifyingUser', {
                 url: '/verifying-user',
                 templateUrl: 'template/verifying-user.html'
             })
             .state('manageUser', {
                 url: '/manage-user',
-                templateUrl: 'template/manage-user.html'
+                templateUrl: 'template/manage-user.html',
+                controller:'AppCtrl'
             })
             .state('invitationUser', {
                 url: '/invitation-user',
@@ -75,11 +95,7 @@ angular.module('app', ['ionic'])
             })
         ;
 
-        // if none of the above states are matched, use this as the fallback
-
         $urlRouterProvider.otherwise('/user-center/tabs/ongoing');
-
-
     })
     .directive('headerShrink', function ($document) {
         var fadeAmt;
@@ -105,7 +121,7 @@ angular.module('app', ['ionic'])
                 var starty = $scope.$eval($attr.headerShrink) || 0;
                 var shrinkAmt;
 
-                var header = $document[0].body.querySelector('.bar-header');
+                var header = $document[0].body.querySelector('.header-shrink-bar-header');
                 var headerHeight = header.offsetHeight;
 
                 $element.bind('scroll', function (e) {
@@ -145,7 +161,7 @@ angular.module('app', ['ionic'])
                 var starty = $scope.$eval($attr.headerShrink) || 0;
                 var shrinkAmt;
 
-                var header = $document[0].body.querySelector('.bar-header');
+                var header = $document[0].body.querySelector('.user-center-header');
                 var headerHeight = header.offsetHeight;
 
                 $element.bind('scroll', function (e) {
@@ -160,15 +176,20 @@ angular.module('app', ['ionic'])
             }
         };
     })
+    .controller('AppCtrl', function ($scope, $window) {
+
+        $scope.goBackHistory = function(){
+            console.log('hi');
+            $window.history.back();
+
+        }
+    })
     .controller('UserCenterCtrl', function ($scope, $ionicScrollDelegate) {
         setTimeout(function(){
             $scope.onTabSelected = function(){
                 $ionicScrollDelegate.$getByHandle('tab-1-content').scrollTop(true);
                 $ionicScrollDelegate.$getByHandle('tab-2-content').scrollTop(true);
-
             }
         }, 100);
-
-
     })
 ;
