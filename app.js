@@ -19,6 +19,14 @@ angular.module('app', ['ionic'])
                 templateUrl: 'template/user-center.html',
                 abstract : true
             })
+            .state('userCenter.landing', {
+                url: "/landing",
+                views: {
+                    'user-center': {
+                        templateUrl: "template/user-center-landing.html"
+                    }
+                }
+            })
             .state('userCenter.tabs', {
                 url: '/tabs',
                 abstract : true,

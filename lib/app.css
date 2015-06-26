@@ -3502,10 +3502,10 @@ ion-infinite-scroll {
   top: 313px; }
 
 .has-footer {
-  bottom: 220px; }
+  bottom: 65px; }
 
 .has-subfooter {
-  bottom: 440px; }
+  bottom: 285px; }
 
 .has-tabs,
 .bar-footer.has-tabs {
@@ -3516,7 +3516,7 @@ ion-infinite-scroll {
     height: auto; }
 
 .has-footer.has-tabs {
-  bottom: 269px; }
+  bottom: 114px; }
 
 .pane {
   -webkit-transform: translate3d(0, 0, 0);
@@ -4268,7 +4268,7 @@ a.subdued {
   border-top-width: 1px;
   border-bottom-width: 0;
   background-position: top;
-  height: 220px; }
+  height: 65px; }
   .bar-footer.item-input-inset {
     position: absolute; }
 
@@ -4281,7 +4281,7 @@ a.subdued {
   height: 44px; }
 
 .bar-subfooter {
-  bottom: 220px;
+  bottom: 65px;
   display: block;
   height: 220px; }
 
