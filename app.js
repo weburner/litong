@@ -53,6 +53,14 @@ angular.module('app', ['ionic'])
                     }
                 }
             })
+            .state('userCenter.visitor', {
+                url: "/visitor",
+                views: {
+                    'user-center': {
+                        templateUrl: "template/visitor-center.html"
+                    }
+                }
+            })
             .state('verifyingUser', {
                 url: '/verifying-user',
                 templateUrl: 'template/verifying-user.html'
@@ -86,7 +94,7 @@ angular.module('app', ['ionic'])
 
         // if none of the above states are matched, use this as the fallback
 
-        $urlRouterProvider.otherwise('/user-center/tabs/ongoing');
+        $urlRouterProvider.otherwise('/user-center/visitor');
 
 
     })
