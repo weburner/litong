@@ -1,4 +1,5 @@
-angular.module('app', ['ionic','app.controllers'])
+angular.module('app', ['ionic','app.controllers','app.services','angucomplete-alt'])
+    .constant('apiEndpoint', 'http://weixin.leatop.com/leatop/jsapi/')
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('landing', {
@@ -9,10 +10,6 @@ angular.module('app', ['ionic','app.controllers'])
                 url: '/signup-visitor',
                 templateUrl: 'template/signup-visitor.html'
             })
-            .state('invitationVisitor', {
-                url: '/invitation-visitor',
-                templateUrl: 'template/invitation-form.html'
-            })
             .state('signupUser', {
                 url: '/signup-user',
                 templateUrl: 'template/signup-user.html'
@@ -20,7 +17,8 @@ angular.module('app', ['ionic','app.controllers'])
             .state('userCenter', {
                 url: '/user-center',
                 templateUrl: 'template/user-center.html',
-                abstract : true
+                abstract : true,
+                controller: 'UserCenterCtrl'
             })
             .state('userCenter.landing', {
                 url: "/landing",
@@ -30,13 +28,17 @@ angular.module('app', ['ionic','app.controllers'])
                     }
                 }
             })
+            .state('invitationVisitor', {
+                url: '/invitation-visitor',
+                templateUrl: 'template/invitation-form.html',
+                controller: 'FormCtrl'
+            })
             .state('userCenter.tabs', {
                 url: '/tabs',
                 abstract : true,
                 views: {
                     'user-center': {
-                        templateUrl: 'template/user-center-tabs.html',
-                        controller:'UserCenterCtrl'
+                        templateUrl: 'template/user-center-tabs.html'
                     }
                 }
             })
@@ -70,8 +72,7 @@ angular.module('app', ['ionic','app.controllers'])
             })
             .state('manageUser', {
                 url: '/manage-user',
-                templateUrl: 'template/manage-user.html',
-                controller:'AppCtrl'
+                templateUrl: 'template/manage-user.html'
             })
             .state('invitationUser', {
                 url: '/invitation-user',
