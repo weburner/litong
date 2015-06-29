@@ -3853,7 +3853,7 @@ a.subdued {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 0;
   width: 100%;
   height: 220px;
   border-width: 0;
@@ -8890,7 +8890,7 @@ a.button {
 .button-bar > .button {
   border: none; }
 
-.button-small {
+.button, .button-small {
   border-radius: 3px; }
 
 .button-light {
@@ -8935,11 +8935,20 @@ a.button {
   display: inline-block;
   line-height: 100px; }
 
+.spacer-250 {
+  height: 250px; }
+
 .spacer-150 {
   height: 150px; }
 
 .spacer-30 {
   height: 30px; }
+
+.spacer-20 {
+  height: 20px; }
+
+.spacer-10 {
+  height: 10px; }
 
 .border-bottom {
   border-top: none;
@@ -8984,14 +8993,44 @@ a.button {
 
 .item-input, .item-select, .item-select select {
   padding-top: 18px;
-  padding-bottom: 3px; }
+  padding-bottom: 3px;
+  padding-left: 0; }
 
 .item-select:after {
   top: 42%;
+  right: 10px;
   content: url(../img/icon-arrow-select.svg);
   border: none; }
+
+.item-icon-right .icon {
+  right: 0px;
+  top: 48%;
+  width: 13px;
+  height: auto; }
 
 .item-button-right > .button {
   top: 10px; }
 
-/* signup visitor */
+/* verifying User */
+.content-wraper, .content-wraper h3 {
+  color: #ffffff; }
+
+.content-wraper h3 {
+  font-size: 18px; }
+
+.content-wraper p {
+  font-size: 12px; }
+
+.btn-des {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #ffffff; }
+
+.btn-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -150px; }
+
+.btn-bottom .button.button-block {
+  width: 300px; }
