@@ -195,10 +195,12 @@ $item-button-line-height: 30px !default;
 
 .item-select:after {
   top: 42%;
-  content: url(../img/arrow-select.svg);
+  content: url(../img/icon-arrow-select.svg);
   border: none;
 }
 
 .item-button-right > .button {
   top: 10px;
 }
+
+/* signup visitor */
