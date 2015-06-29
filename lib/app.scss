@@ -83,6 +83,13 @@ $item-button-line-height: 30px !default;
   color: #546979;
 }
 
+.button-trans {
+  color: #ffffff;
+  border: 1px solid #979797;
+  color: #38454F;
+  opacity: .5;
+}
+
 .button.button-block.btn-submit {
   margin-top: 50px;
   margin-bottom: 50px;
