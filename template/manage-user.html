@@ -1,29 +1,32 @@
 <ion-view title="manage-user">
 
-    <ion-content scroll="false" class="no-header">
-        <button class="button button-clear icon ion-ios-arrow-thin-left" nav-direction="back" ng-click="goBackHistory()"></button>
+    <ion-content scroll="false" class="no-header content-wraper cover-image" style="background-image: url('img/manage-user-bg.jpg')">
+        <button class="button button-clear" nav-direction="back" ng-click="goBackHistory()">
+            <img src="img/icon-arrow-back.svg" class="nav-icon">
+        </button>
 
-        <div class="row flex-vertical" style="text-align: center;height: 100%;">
+        <div class="row flex-vertical text-center" style="height: 100%;">
 
             <div class="col">
-                <img src="img/avatar-img.png"/>
+                <div class="cover-image avatar user-avatar" style="background-image: url('img/avatar.png')"></div>
                 <h3 class="">
                     Victoria Gilson
                 </h3>
                 <p class="">
                     申请于6月18日访问贵公司
                 </p>
+                <h2>12:30-17:30</h2>
             </div>
 
-            <div class="col">
-                <h2>12:30-17:30</h2>
-                <button class="button button-large icon ion-android-call"></button>
+            <div class="col col-center">
+                <div class="spacer-30"></div>
+                <button class="button icon ion-android-call btn-call"></button>
             </div>
 
             <div class="col-30">
                 <div class="row" style="padding: 0;">
-                    <button class="col button button-stable" style="margin: 0 10px;">开启</button>
-                    <button class="col button button-stable" style="margin: 0 10px;">关闭</button>
+                    <button class="col button button-positive" style="margin: 0 10px;">开启</button>
+                    <button class="col button button-balanced" style="margin: 0 10px;">关闭</button>
                 </div>
             </div>
             <div class="col-10"></div>

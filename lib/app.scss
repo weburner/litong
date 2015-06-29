@@ -228,7 +228,7 @@ $item-button-line-height: 30px !default;
 }
 
 /* verifying User */
-.content-wraper, .content-wraper h3 {
+.content-wraper, .content-wraper h3, .content-wraper .col h2 {
   color: #ffffff;
 }
 
@@ -246,13 +246,26 @@ $item-button-line-height: 30px !default;
   color: #ffffff;
 }
 
-.btn-bottom {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -150px;
+/* manage-user */
+.btn-call {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
-.btn-bottom .button.button-block {
-  width: 300px;
+.button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before {
+  font-size: 36px;
+}
+
+.button:hover {
+  color: #e5e5e5;
+}
+
+.button.activated {
+  color: #e5e5e5;
+  border-color: #e5e5e5;
+  background-color: rgba(238, 238, 238, 0.6);
 }
