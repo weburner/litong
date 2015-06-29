@@ -1,30 +1,28 @@
 <ion-view>
-    <ion-header-bar class="default-bar-header">
-        <a class="button button-clear icon ion-ios-arrow-thin-left" nav-direction="back" href="#/landing"></a>
+    <ion-header-bar class="default-bar-header bar-positive">
+        <button class="button button-clear icon ion-ios-arrow-thin-left" nav-direction="back" ng-click="goBackHistory()"></button>
     </ion-header-bar>
-    <ion-content padding="true" class="no-header" scrollbar-y="false">
+    <ion-content padding="true" class="no-header" scrollbar-y="false" style="background-color: white;">
         <div style="height: 44px;"></div>
         <form>
             <ion-list>
                 <label class="item item-select">
                     <span class="input-label">选择您所在的楼层</span>
-                    <select>
-                        <option selected>0 层</option>
-                        <option>1 层</option>
-                        <option>1 层</option>
+                    <select ng-model="floorNumb">
+                        <option ng-repeat="(key, value) in $root.companyList" value="{{key}}">{{value.floor}} 层</option>
                     </select>
                 </label>
                 <label class="item item-select">
                     <span class="input-label">选择您所属的企业</span>
-                    <select>
-                        <option selected>xx 公司</option>
-                        <option>xx 公司</option>
-                        <option>xx 公司</option>
+                    <select ng-model="companyId" ng-change="changedValue(companyId)" >
+                        <option ng-repeat="(key, value) in $root.companyList[floorNumb]['companyList']" value="{{value.id}}">{{value.name}}</option>
                     </select>
                 </label>
-                <label class="item item-input">
+                <label class="item item-input" style="z-index: 99;overflow: visible;">
                     <span class="input-label">您的拜访对象</span>
-                    <input type="text" placeholder="">
+                    <div angucomplete-alt id="ex2" pause="300" selected-object="selectedPerson" local-data="people" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
+                    </div>
+                    </div>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">到访日期</span>

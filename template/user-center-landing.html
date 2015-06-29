@@ -2,7 +2,7 @@
     <style>
         .user-center-header, .user-center-header-row{
             height: 100% !important;
-            background-color: transparent;
+            background-color: transparent !important;
             padding-bottom: 65px;
 
         }
@@ -25,16 +25,16 @@
     <ion-footer-bar align-title="left" style="padding: 0;">
         <div class="button-bar">
             <button class="button">
-                <div style="font-size: 12px; line-height: 12px; margin-top: 10px;">First</div>
-                <div style="font-size: 24px;">647</div>
+                <div style="font-size: 12px; line-height: 12px; margin-top: 10px;">访问总天数</div>
+                <div style="font-size: 24px;">{{user.statistics.total}}</div>
             </button>
             <button class="button">
-                <div style="font-size: 12px; line-height: 12px; margin-top: 10px;">First</div>
-                <div style="font-size: 24px;">203</div>
+                <div style="font-size: 12px; line-height: 12px; margin-top: 10px;">本月</div>
+                <div style="font-size: 24px;">{{user.statistics.month}}</div>
             </button>
             <button class="button">
-                <div style="font-size: 12px; line-height: 12px; margin-top: 10px;">First</div>
-                <div style="font-size: 24px;">34</div>
+                <div style="font-size: 12px; line-height: 12px; margin-top: 10px;">本周</div>
+                <div style="font-size: 24px;">{{user.statistics.week}}</div>
             </button>
         </div>
     </ion-footer-bar>
