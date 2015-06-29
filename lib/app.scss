@@ -118,6 +118,10 @@ $item-button-line-height: 30px !default;
 }
 
 // icon
+.align-right {
+  float: right;
+}
+
 .nav-icon {
   width: 44px;
   height: auto;
@@ -268,4 +272,15 @@ $item-button-line-height: 30px !default;
   color: #e5e5e5;
   border-color: #e5e5e5;
   background-color: rgba(238, 238, 238, 0.6);
+}
+
+/* invitation */
+#icon-invitation {
+  width: 125px;
+  height: auto;
+}
+
+.invitation-time {
+  margin-top: 0;
+  margin-bottom: 20px;
 }
