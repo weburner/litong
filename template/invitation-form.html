@@ -20,9 +20,14 @@
                 </label>
                 <label class="item item-input" style="z-index: 99;overflow: visible;">
                     <span class="input-label">您的拜访对象</span>
-                    <div angucomplete-alt id="ex2" pause="300" selected-object="selectedPerson" local-data="people" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
-                    </div>
-                    </div>
+                    <ion-autocomplete ng-model="model"
+                                      item-value-key="openId"
+                                      item-view-value-key="name"
+                                      items-method="getTestItems(query)"
+                                      items-method-value-key="items"
+                                      multiple-select="false"
+                                      placeholder="Enter test query ..."
+                                      items-clicked-method="itemsClicked(callback)"/>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">到访日期</span>

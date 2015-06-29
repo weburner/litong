@@ -1,4 +1,4 @@
-angular.module('app', ['ionic','app.controllers','app.services','angucomplete-alt'])
+angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplete'])
     .constant('apiEndpoint', 'http://weixin.leatop.com/leatop/jsapi/')
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider

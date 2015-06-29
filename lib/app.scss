@@ -269,3 +269,11 @@ $item-button-line-height: 30px !default;
   border-color: #e5e5e5;
   background-color: rgba(238, 238, 238, 0.6);
 }
+
+.ion-autocomplete-container .bar-header{
+  height:44px;
+}
+.ion-autocomplete-container .has-header{
+  top:44px;
+}
+

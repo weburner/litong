@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
         if(user && !$rootScope.user){
             $rootScope.user = JSON.parse(user);
             console.log($rootScope.user);
-            $location.path('/user-center/tabs/ongoing');
+//            $location.path('/user-center/tabs/ongoing');
         }
         else{
             $http.post(apiEndpoint + "check-user", {'openId':'o8oequHSDFCXk7PUB7dY6lxey0no'}).
@@ -87,6 +87,19 @@ angular.module('app.controllers', [])
                     // when the response is available
                     $scope.people = data.data;
                     console.log($scope.people);
+
+
+                    $scope.model = "";
+                    $scope.callbackValueModel = "";
+                    $scope.getTestItems = function (query) {
+                        return {
+                            items: data.data
+                        };
+                    };
+                    $scope.itemsClicked = function (callback) {
+                        $scope.callbackValueModel = callback;
+                    }
+
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
