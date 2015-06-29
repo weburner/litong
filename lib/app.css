@@ -8904,6 +8904,9 @@ a.button {
   color: #38454F;
   opacity: .5; }
 
+.button.button-trans:hover {
+  color: #38454F; }
+
 .button.button-block.btn-submit {
   margin-top: 50px;
   margin-bottom: 50px; }
