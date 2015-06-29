@@ -29,6 +29,9 @@ $bar-subheader-height: 44px !default;
 
 $bar-footer-height: 65px !default;
 
+$bar-padding-portrait: 0 !default;
+$bar-padding-landscape: 0 !default;
+
 // overwrote button styles in ionic
 $button-font-size: 12px !default;
 $button-height: 40px !default;
@@ -70,7 +73,7 @@ $item-button-line-height: 30px !default;
   border: none;
 }
 
-.button-small {
+.button, .button-small {
   border-radius: 3px;
 }
 
@@ -128,12 +131,24 @@ $item-button-line-height: 30px !default;
 }
 
 // spacer
+.spacer-250 {
+  height: 250px;
+}
+
 .spacer-150 {
   height: 150px;
 }
 
 .spacer-30 {
   height: 30px;
+}
+
+.spacer-20 {
+  height: 20px;
+}
+
+.spacer-10 {
+  height: 10px;
 }
 
 // list item
@@ -147,13 +162,13 @@ $item-button-line-height: 30px !default;
 
 // css for every template
 /* basic */
-.flex-vertical{
+.flex-vertical {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 
-.default-bar-header{
+.default-bar-header {
   height: 44px;
 }
 
@@ -191,16 +206,66 @@ $item-button-line-height: 30px !default;
 .item-input, .item-select, .item-select select {
   padding-top: 18px;
   padding-bottom: 3px;
+  padding-left: 0;
 }
 
 .item-select:after {
   top: 42%;
+  right: 10px;
   content: url(../img/icon-arrow-select.svg);
   border: none;
+}
+
+.item-icon-right .icon {
+  right: 0px;
+  top: 48%;
+  width: 13px;
+  height: auto;
 }
 
 .item-button-right > .button {
   top: 10px;
 }
 
-/* signup visitor */
+/* verifying User */
+.content-wraper, .content-wraper h3, .content-wraper .col h2 {
+  color: #ffffff;
+}
+
+.content-wraper h3 {
+  font-size: 18px;
+}
+
+.content-wraper p {
+  font-size: 12px;
+}
+
+.btn-des {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+/* manage-user */
+.btn-call {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before {
+  font-size: 36px;
+}
+
+.button:hover {
+  color: #e5e5e5;
+}
+
+.button.activated {
+  color: #e5e5e5;
+  border-color: #e5e5e5;
+  background-color: rgba(238, 238, 238, 0.6);
+}
