@@ -36,11 +36,10 @@
             </button>
             <div class="title" style="height: 100%;">
                 <div class="row row-center user-center-header-row" style="height: 205px;padding-bottom: 30px;">
-                    <div class="col-5"></div>
                     <div class="col">
                         <a href="#/qr-card" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
                     </div>
-                    <div class="col">
+                    <div class="col-100">
                         <div class="avatar avatar-bg cover-image row">
                             <div class="cover-image user-avatar-large margin-center col-center" ng-style="{'background-image': 'url('+user.avatar+')'} "></div>
                         </div>
@@ -52,7 +51,6 @@
                         <a nav-direction="forward" ng-if="user.userRole == 2" href="#/signup-visitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
                         </a>
                     </div>
-                    <div class="col-5"></div>
                 </div>
             </div>
         </ion-header-bar>
