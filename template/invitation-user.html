@@ -1,25 +1,41 @@
-<ion-view title="invitation-user">
-    <ion-content padding="true" class="has-header">
-        <div style="text-align: center">
-            <h2>
-                邀请函
-            </h2>
-            <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
-                <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+<ion-view title="invitation-user" xmlns="http://www.w3.org/1999/html">
+    <ion-content scroll="false" class="no-header content-wraper cover-image"
+                 style="background-image: url('img/invitation-user-bg.jpg')">
+        <a class="button button-clear" nav-direction="back" href="#/invitation-form">
+            <img src="img/icon-arrow-back.svg" class="nav-icon">
+        </a>
+        <button class="button button-clear align-right">
+            <img src="img/icon-share.svg" class="nav-icon">
+        </button>
+
+        <div class="row flex-vertical text-center" style="height: 100%;">
+
+            <div class="col">
+                <h2>邀请函</h2>
+
+                <div class="spacer-20"></div>
+                <img id="icon-invitation" src="img/icon-invitation.svg">
             </div>
-            <p>
-                邀请成功创建于
-            </p>
-            <h2>
-                13:00
-            </h2>
-            <p>
-                点击右上角“…”，分享给小伙伴 邀请他访问
-                <span>“广州范思可信息科技”</span>
-            </p>
+
+            <div class="col">
+                <p>邀请成功创建于</p>
+
+                <h2 class="invitation-time">13:00</h2>
+
+                <p>
+                    点击右上角“…”，分享给小伙伴
+                    </br>
+                    邀请他访问
+                    <span>“广州范思可信息科技”</span>
+                </p>
+            </div>
+
+            <div class="col-30">
+                <div class="row">
+                    <button class="button button-trans button-block">删除邀请函</button>
+                </div>
+            </div>
+            <div class="col-10"></div>
         </div>
-
     </ion-content>
-
-    <button style="position: absolute; bottom: 20px" class="button button-stable button-block ">删除邀请</button>
 </ion-view>
