@@ -1,5 +1,5 @@
 <ion-view title="qr-card-visitor">
-    <ion-content scroll="false" class="no-header cover-image" style="background-image: url('img/qr-card-bg.jpg')">
+    <ion-content scroll="false" id="qr-card-visitor" class="no-header cover-image" style="background-image: url('img/qr-card-bg.jpg')">
         <a class="button button-clear" nav-direction="back" href="#/landing">
             <img src="img/icon-arrow-back.svg" class="nav-icon">
         </a>
@@ -15,14 +15,15 @@
             <div class="item item-body no-border">
                 <h2>
                     12:30
-                    <img class="inline-icon" src="img/icon-arrows.svg">
+                    <img class="icon-arrows" src="img/icon-arrows.svg">
                     17:30
                 </h2>
 
-               <img src="img/qr-icon-dark.svg" style="width: 150px; height: auto">
+               <img class="qr-big" src="img/qr-icon-dark.svg">
                 <div class="item-des">
                     二维码每分钟自动更新
                 </div>
+                <div class="item-des" style="display: none">您的二维码还未生效</br>请耐心等待</div>
             </div>
 
             <div class="item item-avatar no-border">

@@ -8933,7 +8933,7 @@ a.button {
   display: inline-block;
   line-height: 100px; }
 
-.inline-icon {
+.icon-arrows {
   width: 22px;
   line-height: 36px;
   height: 22px; }
@@ -8964,17 +8964,36 @@ a.button {
   border: none; }
 
 /* basic */
+.flex {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex; }
+
 .flex-vertical {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  -webkit-box-orient: vertical; }
+
+.flex-y-center {
+  -webkit-box-align: center;
+  /* 纵向居中 */
+  -moz-box-align: center;
+  align-items: center; }
+
+.flex-x-center {
+  -webkit-box-pack: center;
+  /* 横向居中 */
+  justify-content: center; }
 
 .default-bar-header {
   height: 44px; }
 
 .brand {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   width: 100%;
   font-size: 12px;
   opacity: 0.4; }
@@ -9076,15 +9095,23 @@ a.button {
 
 /* qr-card */
 .qr-card {
-  margin: 20px 30px;
-  padding: 8px;
-  overflow: visible; }
+  width: auto;
+  overflow: visible;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  right: 20px;
+  bottom: 40px; }
+
+.list.qr-card .item {
+  color: #546979; }
 
 .qr-card .item h2 {
-  font-size: 30px;
-  color: #48A0DC; }
+  font-size: 21px;
+  color: #48A0DC;
+  margin-top: 0; }
 
-.list.qr-card .item:last-child {
+#qr-card-visitor .list.qr-card .item:last-child {
   text-align: left; }
 
 .qr-card .item:first-child {
@@ -9093,9 +9120,38 @@ a.button {
 
 .item-des {
   font-size: 12px;
-  color: #546979;
   opacity: .6;
   margin-top: 5px; }
+
+.qr-big {
+  width: 130px;
+  height: auto; }
+
+.qr-small {
+  width: 42px;
+  height: auto; }
+
+.qr-body {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: auto;
+  background-color: transparent; }
+
+.card-bottom {
+  position: absolute;
+  bottom: 10px;
+  width: 100%; }
+
+.location {
+  font-size: 12px; }
+
+.location img {
+  width: 12px;
+  height: auto;
+  margin-bottom: -3px; }
 
 .ion-autocomplete-container .bar-header {
   height: 44px; }
@@ -9136,8 +9192,7 @@ a.button {
   z-index: 100; }
 
 .item-title {
-  font-size: 18px;
-  color: #546979; }
+  font-size: 18px; }
 
 .item-sub-title {
   font-size: 10px;
