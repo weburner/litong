@@ -185,6 +185,11 @@ $item-padding:                    12px !default;
   opacity: 0.4;
 }
 
+.align-right {
+  float: right;
+}
+
+
 /* landing */
 #landing {
   color: #ffffff;
@@ -276,6 +281,22 @@ $item-padding:                    12px !default;
   color: #e5e5e5;
   border-color: #e5e5e5;
   background-color: rgba(238, 238, 238, 0.6);
+}
+
+/* invitation-user */
+#icon-invitation {
+  width: 125px;
+  height: auto;
+}
+
+.button-trans {
+  opacity: .5;
+}
+
+/* follow-visitor */
+#qr-wx {
+  width: 150px;
+  height: auto;
 }
 
 .ion-autocomplete-container .bar-header{

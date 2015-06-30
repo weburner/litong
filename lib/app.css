@@ -8968,6 +8968,9 @@ a.button {
   font-size: 12px;
   opacity: 0.4; }
 
+.align-right {
+  float: right; }
+
 /* landing */
 #landing {
   color: #ffffff; }
@@ -9043,6 +9046,19 @@ a.button {
   color: #e5e5e5;
   border-color: #e5e5e5;
   background-color: rgba(238, 238, 238, 0.6); }
+
+/* invitation-user */
+#icon-invitation {
+  width: 125px;
+  height: auto; }
+
+.button-trans {
+  opacity: .5; }
+
+/* follow-visitor */
+#qr-wx {
+  width: 150px;
+  height: auto; }
 
 .ion-autocomplete-container .bar-header {
   height: 44px; }
