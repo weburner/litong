@@ -11,12 +11,13 @@ angular.module('app.controllers', [])
 //            $location.path('/user-center/tabs/ongoing');
         }
         else{
-            $http.post(apiEndpoint + "check-user", {'openId':'o8oequHSDFCXk7PUB7dY6lxey0no'}).
+            $http.post(apiEndpoint + "check-user", {'openId':'o8oequOpYwsRs7Gq2fFxZJUDvzs8'}).
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
                     // when the response is available
 //                    console.log(data);
                     localStorage.setItem('user', JSON.stringify(data.data));
+                    $location.path('/user-center/tabs/ongoing');
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
@@ -33,6 +34,9 @@ angular.module('app.controllers', [])
                     console.log(data);
                 if(!data.data){
                     $location.path('/user-center/landing');
+                }
+                else{
+                    $scope.passList = data.data;
                 }
             }).
             error(function(data, status, headers, config) {
@@ -80,6 +84,17 @@ angular.module('app.controllers', [])
                 console.log(status);
             });
 
+        $scope.submitForm = function(){
+            console.log('hi');
+            console.log($scope.callbackValueModel);
+        }
+
+
+        $scope.submitFormSignupVisitor = function(){
+
+        }
+        $scope.senderID = "";
+
         $scope.changedValue=function(item){
             $http.post(apiEndpoint + "member-list", {'companyId':item}).
                 success(function(data, status, headers, config) {
@@ -89,15 +104,20 @@ angular.module('app.controllers', [])
                     console.log($scope.people);
 
 
-                    $scope.model = "";
-                    $scope.callbackValueModel = "";
+
                     $scope.getTestItems = function (query) {
-                        return {
-                            items: data.data
-                        };
+
+                        var searchItems = data.data;
+                        var returnValue = { items: [] };
+                        searchItems.forEach(function(item){
+                            if (item.name.indexOf(query) > -1 ){
+                                returnValue.items.push(item);
+                            }
+                        });
+                        return returnValue;
                     };
                     $scope.itemsClicked = function (callback) {
-                        $scope.callbackValueModel = callback;
+                        $scope.callbackValueModel = callback.item.openId;
                     }
 
                 }).

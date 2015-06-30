@@ -8,7 +8,8 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
             .state('signupVisitor', {
                 url: '/signup-visitor',
-                templateUrl: 'template/signup-visitor.html'
+                templateUrl: 'template/signup-visitor.html',
+                controller: 'FormCtrl'
             })
             .state('signupUser', {
                 url: '/signup-user',
@@ -102,8 +103,8 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
         var fadeAmt;
 
         var shrink = function (header, content, amt, max) {
-            amt = Math.min(176, amt);
-            fadeAmt = 1 - amt / 176;
+            amt = Math.min(161, amt);
+            fadeAmt = 1 - amt / 161;
             ionic.requestAnimationFrame(function () {
                 header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, -' + amt + 'px, 0)';
                 header.children[0].style[ionic.CSS.TRANSFORM] = 'translate3d(0, ' + amt + 'px, 0)';
@@ -141,8 +142,8 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
         var fadeAmt;
 
         var shrink = function (header, content, amt, max) {
-            amt = Math.min(220, amt);
-            fadeAmt = 1 - amt / 220;
+            amt = Math.min(205, amt);
+            fadeAmt = 1 - amt / 205;
             var tabs = $document[0].body.querySelector('.tab-nav');
             ionic.requestAnimationFrame(function () {
                 header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, -' + amt + 'px, 0)';

@@ -3314,8 +3314,6 @@ html {
 body,
 .ionic-body {
   -webkit-touch-callout: none;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;
@@ -3487,25 +3485,25 @@ ion-infinite-scroll {
 
 /* If you change these, change platform.scss as well */
 .has-header {
-  top: 220px; }
+  top: 205px; }
 
 .no-header {
   top: 0; }
 
 .has-subheader {
-  top: 264px; }
+  top: 249px; }
 
 .has-tabs-top {
-  top: 269px; }
+  top: 254px; }
 
 .has-header.has-subheader.has-tabs-top {
-  top: 313px; }
+  top: 298px; }
 
 .has-footer {
   bottom: 65px; }
 
 .has-subfooter {
-  bottom: 285px; }
+  bottom: 270px; }
 
 .has-tabs,
 .bar-footer.has-tabs {
@@ -3571,7 +3569,7 @@ cite {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #546979;
-  font-weight: 500;
+  font-weight: 300;
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
@@ -3855,7 +3853,7 @@ a.subdued {
   box-sizing: border-box;
   padding: 0;
   width: 100%;
-  height: 220px;
+  height: 205px;
   border-width: 0;
   border-style: solid;
   border-top: 1px solid transparent;
@@ -3976,13 +3974,13 @@ a.subdued {
     overflow: hidden;
     margin: 0 10px;
     min-width: 30px;
-    height: 219px;
+    height: 204px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 17px;
-    font-weight: 500;
-    line-height: 220px; }
+    font-weight: 300;
+    line-height: 205px; }
     .bar .title.title-left {
       text-align: left; }
     .bar .title.title-right {
@@ -4060,7 +4058,7 @@ a.subdued {
   font-size: 24px; }
 .platform-android .bar .title {
   font-size: 19px;
-  line-height: 220px; }
+  line-height: 205px; }
 
 .bar-light .button {
   border-color: #dddddd;
@@ -4276,14 +4274,14 @@ a.subdued {
   padding: 0; }
 
 .bar-subheader {
-  top: 220px;
+  top: 205px;
   display: block;
   height: 44px; }
 
 .bar-subfooter {
   bottom: 65px;
   display: block;
-  height: 220px; }
+  height: 205px; }
 
 .nav-bar-block {
   position: absolute;
@@ -4957,7 +4955,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 /* If you change this, change platform.scss as well */
 .tabs-top > .tabs,
 .tabs.tabs-top {
-  top: 220px;
+  top: 205px;
   padding-top: 0;
   background-position: bottom;
   border-top-width: 0;
@@ -4988,7 +4986,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 17px;
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   opacity: 0.7; }
   .tab-item:hover {
@@ -5005,7 +5003,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 .tabs-icon-bottom > .tabs .tab-item,
 .tabs-icon-bottom.tabs .tab-item {
   font-size: 10px;
-  line-height: 14px; }
+  line-height: 17px; }
 
 .tab-item .icon {
   display: block;
@@ -5137,7 +5135,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   min-height: 100%;
   max-height: 100%;
   width: 275px;
-  background-color: white; }
+  background-color: #38454f; }
   .menu .scroll-content {
     z-index: 10; }
   .menu .bar-header {
@@ -5216,21 +5214,21 @@ ion-tabs.tabs-color-active-dark .tab-item {
     bottom: 0; }
 
   .platform-ios.platform-cordova .modal-wrapper .modal .bar-header:not(.bar-subheader) {
-    height: 220px; }
+    height: 205px; }
     .platform-ios.platform-cordova .modal-wrapper .modal .bar-header:not(.bar-subheader) > * {
       margin-top: 0; }
   .platform-ios.platform-cordova .modal-wrapper .modal .tabs-top > .tabs,
   .platform-ios.platform-cordova .modal-wrapper .modal .tabs.tabs-top {
-    top: 220px; }
+    top: 205px; }
   .platform-ios.platform-cordova .modal-wrapper .modal .has-header,
   .platform-ios.platform-cordova .modal-wrapper .modal .bar-subheader {
-    top: 220px; }
+    top: 205px; }
   .platform-ios.platform-cordova .modal-wrapper .modal .has-subheader {
-    top: 264px; }
+    top: 249px; }
   .platform-ios.platform-cordova .modal-wrapper .modal .has-header.has-tabs-top {
-    top: 269px; }
+    top: 254px; }
   .platform-ios.platform-cordova .modal-wrapper .modal .has-header.has-subheader.has-tabs-top {
-    top: 313px; }
+    top: 298px; }
 
   .modal-backdrop-bg {
     -webkit-transition: opacity 300ms ease-in-out;
@@ -5555,7 +5553,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   z-index: 2;
   display: block;
   margin: -1px;
-  padding: 16px;
+  padding: 12px;
   border-width: 1px;
   border-style: solid;
   font-size: 16px; }
@@ -5592,12 +5590,12 @@ ion-tabs.tabs-color-active-dark .tab-item {
     display: -ms-flexbox;
     display: flex;
     position: absolute;
-    top: 16px;
-    right: 32px; }
+    top: 12px;
+    right: 24px; }
   .item.item-button-right .badge {
-    right: 67px; }
+    right: 59px; }
   .item.item-divider .badge {
-    top: 8px; }
+    top: 6px; }
   .item .badge + .badge {
     margin-right: 5px; }
   .item.item-light {
@@ -5768,7 +5766,7 @@ button.item.item-complex {
 .item-radio .item-content {
   position: relative;
   z-index: 2;
-  padding: 16px 49px 16px 16px;
+  padding: 12px 35px 12px 12px;
   border: none;
   background-color: white; }
 
@@ -5906,24 +5904,24 @@ a.item-content {
   font-size: 28px; }
 
 .item-icon-left {
-  padding-left: 54px; }
+  padding-left: 40px; }
   .item-icon-left .icon {
-    left: 11px; }
+    left: 8px; }
 
 .item-complex.item-icon-left {
   padding-left: 0; }
   .item-complex.item-icon-left .item-content {
-    padding-left: 54px; }
+    padding-left: 40px; }
 
 .item-icon-right {
-  padding-right: 54px; }
+  padding-right: 40px; }
   .item-icon-right .icon {
-    right: 11px; }
+    right: 8px; }
 
 .item-complex.item-icon-right {
   padding-right: 0; }
   .item-complex.item-icon-right .item-content {
-    padding-right: 54px; }
+    padding-right: 40px; }
 
 .item-icon-left.item-icon-right .icon:first-child {
   right: auto; }
@@ -5938,10 +5936,10 @@ a.item-content {
   font-size: 16px; }
 
 .item-icon-left .icon-accessory {
-  left: 3px; }
+  left: 2px; }
 
 .item-icon-right .icon-accessory {
-  right: 3px; }
+  right: 2px; }
 
 /**
  * Item Button
@@ -5949,7 +5947,7 @@ a.item-content {
  * An item button is a child button inside an .item (not the entire .item)
  */
 .item-button-left {
-  padding-left: 72px; }
+  padding-left: 54px; }
 
 .item-button-left > .button,
 .item-button-left .item-content > .button {
@@ -5965,8 +5963,8 @@ a.item-content {
   -moz-align-items: center;
   align-items: center;
   position: absolute;
-  top: 8px;
-  left: 11px;
+  top: 6px;
+  left: 8px;
   min-width: 32px;
   min-height: 32px;
   font-size: 12px;
@@ -5987,7 +5985,7 @@ a.item-content {
 .item-button-right,
 a.item.item-button-right,
 button.item.item-button-right {
-  padding-right: 80px; }
+  padding-right: 60px; }
 
 .item-button-right > .button,
 .item-button-right .item-content > .button,
@@ -6005,8 +6003,8 @@ button.item.item-button-right {
   -moz-align-items: center;
   align-items: center;
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 6px;
+  right: 12px;
   min-width: 32px;
   min-height: 32px;
   font-size: 12px;
@@ -6033,8 +6031,8 @@ button.item.item-button-right {
 .item-avatar .item-content,
 .item-avatar-left,
 .item-avatar-left .item-content {
-  padding-left: 72px;
-  min-height: 72px; }
+  padding-left: 74px;
+  min-height: 74px; }
   .item-avatar > img:first-child,
   .item-avatar .item-image,
   .item-avatar .item-content > img:first-child,
@@ -6044,35 +6042,35 @@ button.item.item-button-right {
   .item-avatar-left .item-content > img:first-child,
   .item-avatar-left .item-content .item-image {
     position: absolute;
-    top: 16px;
-    left: 16px;
-    max-width: 40px;
-    max-height: 40px;
+    top: 12px;
+    left: 12px;
+    max-width: 50px;
+    max-height: 50px;
     width: 100%;
     height: 100%;
     border-radius: 50%; }
 
 .item-avatar-right,
 .item-avatar-right .item-content {
-  padding-right: 72px;
-  min-height: 72px; }
+  padding-right: 74px;
+  min-height: 74px; }
   .item-avatar-right > img:first-child,
   .item-avatar-right .item-image,
   .item-avatar-right .item-content > img:first-child,
   .item-avatar-right .item-content .item-image {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    max-width: 40px;
-    max-height: 40px;
+    top: 12px;
+    right: 12px;
+    max-width: 50px;
+    max-height: 50px;
     width: 100%;
     height: 100%;
     border-radius: 50%; }
 
 .item-thumbnail-left,
 .item-thumbnail-left .item-content {
-  padding-top: 8px;
-  padding-left: 106px;
+  padding-top: 6px;
+  padding-left: 102px;
   min-height: 100px; }
   .item-thumbnail-left > img:first-child,
   .item-thumbnail-left .item-image,
@@ -6094,8 +6092,8 @@ button.item.item-button-right {
 
 .item-thumbnail-right,
 .item-thumbnail-right .item-content {
-  padding-top: 8px;
-  padding-right: 106px;
+  padding-top: 6px;
+  padding-right: 102px;
   min-height: 100px; }
   .item-thumbnail-right > img:first-child,
   .item-thumbnail-right .item-image,
@@ -6123,16 +6121,16 @@ button.item.item-button-right {
 
 .item-body {
   overflow: auto;
-  padding: 16px;
+  padding: 12px;
   text-overflow: inherit;
   white-space: normal; }
   .item-body h1, .item-body h2, .item-body h3, .item-body h4, .item-body h5, .item-body h6, .item-body p {
-    margin-top: 16px;
-    margin-bottom: 16px; }
+    margin-top: 12px;
+    margin-bottom: 12px; }
 
 .item-divider {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   min-height: 30px;
   background-color: whitesmoke;
   color: #222222;
@@ -6814,7 +6812,7 @@ textarea {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 10.66667px; }
+  padding: 8px; }
 
 .item-input-wrapper {
   display: -webkit-box;
@@ -6847,7 +6845,7 @@ textarea {
   line-height: 18px; }
 
 .item-input-wrapper ~ .button {
-  margin-left: 10.66667px; }
+  margin-left: 8px; }
 
 .input-label {
   display: table;
@@ -7185,21 +7183,21 @@ input:checked + .checkbox-icon:after {
   opacity: 1; }
 
 .item-checkbox {
-  padding-left: 60px; }
+  padding-left: 52px; }
   .item-checkbox.active {
     box-shadow: none; }
 
 .item-checkbox .checkbox {
   position: absolute;
   top: 50%;
-  right: 8px;
-  left: 8px;
+  right: 6px;
+  left: 6px;
   z-index: 3;
   margin-top: -21px; }
 
 .item-checkbox.item-checkbox-right {
-  padding-right: 60px;
-  padding-left: 16px; }
+  padding-right: 52px;
+  padding-left: 12px; }
 
 .item-checkbox-right .checkbox input,
 .item-checkbox-right .checkbox-icon {
@@ -7312,15 +7310,15 @@ input:checked + .checkbox-icon:after {
 
 .item-toggle,
 .item-toggle.item-complex .item-content {
-  padding-right: 99px; }
+  padding-right: 87px; }
 
 .item-toggle.item-complex {
   padding-right: 0; }
 
 .item-toggle .toggle {
   position: absolute;
-  top: 10px;
-  right: 16px;
+  top: 8px;
+  right: 12px;
   z-index: 3; }
 
 .toggle input:disabled + .track {
@@ -7393,7 +7391,7 @@ input:checked + .checkbox-icon:after {
 
 .item-radio .item-content {
   /* give some room to the right for the checkmark icon */
-  padding-right: 64px; }
+  padding-right: 48px; }
 
 .item-radio .radio-icon {
   /* checkmark icon will be hidden by default */
@@ -7402,7 +7400,7 @@ input:checked + .checkbox-icon:after {
   right: 0;
   z-index: 3;
   visibility: hidden;
-  padding: 14px;
+  padding: 10px;
   height: 100%;
   font-size: 24px; }
 
@@ -7603,7 +7601,7 @@ input:checked + .checkbox-icon:after {
     top: 0;
     bottom: 0;
     right: 0;
-    padding: 14px 48px 16px 16px;
+    padding: 10px 36px 12px 12px;
     max-width: 65%;
     border: none;
     background: white;
@@ -7621,7 +7619,7 @@ input:checked + .checkbox-icon:after {
   .item-select:after {
     position: absolute;
     top: 50%;
-    right: 16px;
+    right: 12px;
     margin-top: -3px;
     width: 0;
     height: 0;
@@ -8686,34 +8684,34 @@ a.button {
  * Platform specific tweaks
  */
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
-  height: 240px; }
+  height: 225px; }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
     margin-top: 19px !important; }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
     margin-top: 20px; }
 .platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs,
 .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
-  top: 240px; }
+  top: 225px; }
 .platform-ios.platform-cordova:not(.fullscreen) .has-header,
 .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
-  top: 240px; }
+  top: 225px; }
 .platform-ios.platform-cordova:not(.fullscreen) .has-subheader {
-  top: 284px; }
+  top: 269px; }
 .platform-ios.platform-cordova:not(.fullscreen) .has-header.has-tabs-top {
-  top: 289px; }
+  top: 274px; }
 .platform-ios.platform-cordova:not(.fullscreen) .has-header.has-subheader.has-tabs-top {
-  top: 333px; }
+  top: 318px; }
 .platform-ios.platform-cordova .popover .bar-header:not(.bar-subheader) {
-  height: 220px; }
+  height: 205px; }
   .platform-ios.platform-cordova .popover .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
     margin-top: -1px; }
   .platform-ios.platform-cordova .popover .bar-header:not(.bar-subheader) > * {
     margin-top: 0; }
 .platform-ios.platform-cordova .popover .has-header,
 .platform-ios.platform-cordova .popover .bar-subheader {
-  top: 220px; }
+  top: 205px; }
 .platform-ios.platform-cordova .popover .has-subheader {
-  top: 264px; }
+  top: 249px; }
 .platform-ios.platform-cordova.status-bar-hide {
   margin-bottom: 20px; }
 
@@ -8918,7 +8916,7 @@ a.button {
 .user-avatar-large {
   width: 90px;
   height: 90px;
-  border-radius: 45x; }
+  border-radius: 45px; }
 
 .user-avatar-small {
   width: 50px;
@@ -9051,3 +9049,75 @@ a.button {
 
 .ion-autocomplete-container .has-header {
   top: 44px; }
+
+.margin-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.round-button {
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px; }
+
+.border-bottom-half {
+  border: none; }
+
+.border-bottom-half .item-content {
+  padding-left: 80px; }
+
+.border-bottom-half .item-content > img:first-child {
+  left: 16px; }
+
+.border-bottom-half:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  /* or 100px */
+  margin-left: 80px;
+  border-bottom: 1px solid #D8D8D8;
+  z-index: 100; }
+
+.item-title {
+  font-size: 18px;
+  color: #546979; }
+
+.item-sub-title {
+  font-size: 10px;
+  color: #546979;
+  opacity: .6; }
+
+.header-title {
+  bottom: 15px;
+  width: 100%;
+  position: absolute;
+  left: 0; }
+
+.tab-item {
+  opacity: 1;
+  color: #98A5AE; }
+
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+  opacity: 1;
+  color: #38454F; }
+
+.menu .list .item {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 14px; }
+
+.logo-menu {
+  display: block;
+  width: 85px;
+  opacity: .2;
+  margin: 40px auto; }
+
+.menu-image-icon {
+  width: 14px;
+  height: auto;
+  margin-right: 5px; }

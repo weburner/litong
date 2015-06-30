@@ -19,7 +19,6 @@ html {
 body,
 .ionic-body {
   @include touch-callout(none);
-  @include font-smoothing(antialiased);
   @include text-size-adjust(none);
   @include tap-highlight-transparent();
   @include user-select(none);

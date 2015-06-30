@@ -23,8 +23,11 @@ $positive: #47A0DB !default;
 $balanced: #88C057 !default;
 
 $base-color: #546979 !default;
+$menu-bg:                         #38454F !default;
 
-$bar-height: 220px !default;
+$headings-font-weight:            300 !default;
+
+$bar-height: 205px !default;
 $bar-subheader-height: 44px !default;
 
 $bar-footer-height: 65px !default;
@@ -52,6 +55,11 @@ $button-border-width: 0 !default;
 $item-button-font-size: 12px !default;
 $item-button-line-height: 30px !default;
 
+
+$tabs-text-font-size:             17px !default;
+$item-avatar-width:               50px !default;
+$item-avatar-height:              50px !default;
+$item-padding:                    12px !default;
 // Include all of Ionic.
 @import "scss/ionic";
 
@@ -108,7 +116,7 @@ $item-button-line-height: 30px !default;
 .user-avatar-large {
   width: 90px;
   height: 90px;
-  border-radius: 45x;
+  border-radius: 45px;
 }
 
 .user-avatar-small {
@@ -277,3 +285,78 @@ $item-button-line-height: 30px !default;
   top:44px;
 }
 
+.margin-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.round-button{
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+.border-bottom-half{
+  border: none;
+}
+.border-bottom-half .item-content{
+  padding-left: 80px;
+}
+.border-bottom-half .item-content > img:first-child{
+  left: 16px;
+}
+.border-bottom-half:before {
+  content : "";
+  position: absolute;
+  left    : 0;
+  bottom  : 0;
+  height  : 1px;
+  width   : 100%;  /* or 100px */
+  margin-left: 80px;
+  border-bottom:1px solid #D8D8D8;
+  z-index: 100;
+}
+.item-title{
+  font-size: 18px;
+  color:#546979;
+}
+.item-sub-title{
+  font-size: 10px;
+  color:#546979;
+  opacity: .6;
+}
+.header-title{
+  bottom: 15px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+
+}
+
+
+.tab-item {
+  opacity: 1;
+  color:#98A5AE;
+}
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+  opacity: 1;
+  color: #38454F;
+}
+
+.menu .list .item{
+  background-color: transparent;
+  border: none;
+  color:white;
+  font-size: 14px;
+}
+.logo-menu{
+  display: block;
+  width: 85px;
+  opacity: .2;
+  margin: 40px auto;
+}
+.menu-image-icon{
+  width: 14px;
+  height: auto;
+  margin-right: 5px;
+}

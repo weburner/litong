@@ -1,54 +1,33 @@
 <ion-view>
     <ion-header-bar class="default-bar-header bar-positive">
-        <button class="button button-clear icon ion-ios-arrow-thin-left" nav-direction="back" ng-click="goBackHistory()"></button>
+        <a class="button button-clear" nav-direction="back" ng-click="goBackHistory()">
+            <img src="img/icon-arrow-back.svg" class="nav-icon">
+        </a>
     </ion-header-bar>
     <ion-content padding="true" class="no-header" scrollbar-y="false" style="background-color: white;">
         <div style="height: 44px;"></div>
         <form>
             <ion-list>
-                <label class="item item-select">
-                    <span class="input-label">选择您所在的楼层</span>
-                    <select ng-model="floorNumb">
-                        <option ng-repeat="(key, value) in $root.companyList" value="{{key}}">{{value.floor}} 层</option>
-                    </select>
-                </label>
-                <label class="item item-select">
-                    <span class="input-label">选择您所属的企业</span>
-                    <select ng-model="companyId" ng-change="changedValue(companyId)" >
-                        <option ng-repeat="(key, value) in $root.companyList[floorNumb]['companyList']" value="{{value.id}}">{{value.name}}</option>
-                    </select>
-                </label>
-                <label class="item item-input" style="z-index: 99;overflow: visible;">
-                    <span class="input-label">您的拜访对象</span>
-                    <ion-autocomplete ng-model="model"
-                                      item-value-key="openId"
-                                      item-view-value-key="name"
-                                      items-method="getTestItems(query)"
-                                      items-method-value-key="items"
-                                      multiple-select="false"
-                                      placeholder="Enter test query ..."
-                                      items-clicked-method="itemsClicked(callback)"/>
-                </label>
-                <label class="item item-input">
+                <label class="item item-input border-bottom">
                     <span class="input-label">到访日期</span>
                     <input type="date" placeholder="">
                 </label>
-                <label class="item item-input">
+                <label class="item item-input border-bottom">
                     <span class="input-label">到达时间</span>
                     <input type="time" placeholder="">
                 </label>
-                <label class="item item-input">
+                <label class="item item-input border-bottom">
                     <span class="input-label">离开时间</span>
                     <input type="time" placeholder="">
                 </label>
-                <label class="item item-input">
+                <label class="item item-input border-bottom">
                     <span class="input-label">到访人数</span>
                     <input type="number" placeholder="">
                 </label>
             </ion-list>
+            <button ng-click="submitForm()" class="button button-light button-block btn-submit">保 存</button>
 
-            <div style="height: 40px;"></div>
-            <a href="#/" class="button button-positive button-block ">保 存</a>
+            <div class="brand text-center">叩叩微信访客系统™</div>
         </form>
     </ion-content>
 </ion-view>
