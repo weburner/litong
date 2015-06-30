@@ -4,24 +4,30 @@ angular.module('app.controllers', [])
             $window.history.back();
         };
 
-        var user = localStorage.getItem('user');
-        if(user && !$rootScope.user){
-            $rootScope.user = JSON.parse(user);
-            console.log($rootScope.user);
-//            $location.path('/user-center/tabs/ongoing');
+        $scope.registerData={};
+
+        if (!$rootScope.user && localStorage.getItem('user')){
+            $rootScope.user = JSON.parse(localStorage.getItem('user'));
+        }
+        else if(window.weixinData.nickname != undefined){
+            $location.path('/follow-visitor');
         }
         else{
-            $http.post(apiEndpoint + "check-user", {'openId':'o8oequOpYwsRs7Gq2fFxZJUDvzs8'}).
+            $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
                 success(function(data, status, headers, config) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-//                    console.log(data);
-                    localStorage.setItem('user', JSON.stringify(data.data));
-                    $location.path('/user-center/tabs/ongoing');
+                    if(data.status == 1){
+                        localStorage.setItem('user', JSON.stringify(data.data));
+                        $rootScope.user = data.data;
+                    }
+                    else if(data.status == 0){
+                        alert("用户已关闭，请联系管理员！")
+                    }
+                    else if(data.status == 2){
+                        $rootScope.user = data.data;
+                        $location.path('/verifying-user');
+                    }
                 }).
                 error(function(data, status, headers, config) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
                     console.log(status);
                 });
         }
@@ -29,9 +35,6 @@ angular.module('app.controllers', [])
     .controller('UserCenterCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $location) {
         $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
             success(function(data, status, headers, config) {
-                // this callback will be called asynchronously
-                // when the response is available
-                    console.log(data);
                 if(!data.data){
                     $location.path('/user-center/landing');
                 }
@@ -40,8 +43,6 @@ angular.module('app.controllers', [])
                 }
             }).
             error(function(data, status, headers, config) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
                 console.log(status);
             });
 
@@ -55,9 +56,6 @@ angular.module('app.controllers', [])
     .controller('FormCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http) {
         $http.post(apiEndpoint + "company-list").
             success(function(data, status, headers, config) {
-                // this callback will be called asynchronously
-                // when the response is available
-//                    console.log(data);
                 var floors = [];
                 var floorsNum;
                 for(var item in data.data){
