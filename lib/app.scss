@@ -23,9 +23,9 @@ $positive: #47A0DB !default;
 $balanced: #88C057 !default;
 
 $base-color: #546979 !default;
-$menu-bg:                         #38454F !default;
+$menu-bg: #38454F !default;
 
-$headings-font-weight:            300 !default;
+$headings-font-weight: 300 !default;
 
 $bar-height: 205px !default;
 $bar-subheader-height: 44px !default;
@@ -34,6 +34,8 @@ $bar-footer-height: 65px !default;
 
 $bar-padding-portrait: 0 !default;
 $bar-padding-landscape: 0 !default;
+
+$card-border-radius: 5px !default;
 
 // overwrote button styles in ionic
 $button-font-size: 12px !default;
@@ -55,11 +57,10 @@ $button-border-width: 0 !default;
 $item-button-font-size: 12px !default;
 $item-button-line-height: 30px !default;
 
-
-$tabs-text-font-size:             17px !default;
-$item-avatar-width:               50px !default;
-$item-avatar-height:              50px !default;
-$item-padding:                    12px !default;
+$tabs-text-font-size: 17px !default;
+$item-avatar-width: 50px !default;
+$item-avatar-height: 50px !default;
+$item-padding: 12px !default;
 // Include all of Ionic.
 @import "scss/ionic";
 
@@ -138,6 +139,12 @@ $item-padding:                    12px !default;
   line-height: 100px;
 }
 
+.inline-icon {
+  width: 22px;
+  line-height: 36px;
+  height: 22px;
+}
+
 // spacer
 .spacer-250 {
   height: 250px;
@@ -168,6 +175,10 @@ $item-padding:                    12px !default;
   border-color: #CCCCCC;
 }
 
+.no-border {
+  border: none;
+}
+
 // css for every template
 /* basic */
 .flex-vertical {
@@ -181,14 +192,21 @@ $item-padding:                    12px !default;
 }
 
 .brand {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+
   font-size: 12px;
   opacity: 0.4;
+}
+
+.brand-white {
+  color:#ffffff;
 }
 
 .align-right {
   float: right;
 }
-
 
 /* landing */
 #landing {
@@ -299,54 +317,92 @@ $item-padding:                    12px !default;
   height: auto;
 }
 
-.ion-autocomplete-container .bar-header{
-  height:44px;
-}
-.ion-autocomplete-container .has-header{
-  top:44px;
+/* qr-card */
+.qr-card {
+  margin: 20px 30px;
+  padding: 8px;
+//  height: 80%;
+  overflow: visible;
 }
 
-.margin-center{
+.qr-card .item h2 {
+  font-size: 30px;
+  color: #48A0DC;
+}
+
+.list.qr-card .item:last-child {
+  text-align: left;
+}
+
+.qr-card .item:first-child {
+  margin-top: -55px;
+  background-color: transparent;
+}
+
+.item-des {
+  font-size: 12px;
+  color: #546979;
+  opacity: .6;
+  margin-top: 5px;
+}
+
+.ion-autocomplete-container .bar-header {
+  height: 44px;
+}
+
+.ion-autocomplete-container .has-header {
+  top: 44px;
+}
+
+.margin-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.round-button{
+
+.round-button {
   background-color: #ffffff;
   width: 40px;
   height: 40px;
   border-radius: 100px;
 }
-.border-bottom-half{
+
+.border-bottom-half {
   border: none;
 }
-.border-bottom-half .item-content{
+
+.border-bottom-half .item-content {
   padding-left: 80px;
 }
-.border-bottom-half .item-content > img:first-child{
+
+.border-bottom-half .item-content > img:first-child {
   left: 16px;
 }
+
 .border-bottom-half:before {
-  content : "";
+  content: "";
   position: absolute;
-  left    : 0;
-  bottom  : 0;
-  height  : 1px;
-  width   : 100%;  /* or 100px */
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%; /* or 100px */
   margin-left: 80px;
-  border-bottom:1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
   z-index: 100;
 }
-.item-title{
+
+.item-title {
   font-size: 18px;
-  color:#546979;
+  color: #546979;
 }
-.item-sub-title{
+
+.item-sub-title {
   font-size: 10px;
-  color:#546979;
+  color: #546979;
   opacity: .6;
 }
-.header-title{
+
+.header-title {
   bottom: 15px;
   width: 100%;
   position: absolute;
@@ -354,29 +410,31 @@ $item-padding:                    12px !default;
 
 }
 
-
 .tab-item {
   opacity: 1;
-  color:#98A5AE;
+  color: #98A5AE;
 }
+
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
   opacity: 1;
   color: #38454F;
 }
 
-.menu .list .item{
+.menu .list .item {
   background-color: transparent;
   border: none;
-  color:white;
+  color: white;
   font-size: 14px;
 }
-.logo-menu{
+
+.logo-menu {
   display: block;
   width: 85px;
   opacity: .2;
   margin: 40px auto;
 }
-.menu-image-icon{
+
+.menu-image-icon {
   width: 14px;
   height: auto;
   margin-right: 5px;
