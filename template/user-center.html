@@ -47,7 +47,9 @@
                         <h4 class="header-title">{{user.name}}</h4>
                     </div>
                     <div class="col">
-                        <a nav-direction="forward" href="#/invitation-visitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
+                        <a nav-direction="forward" ng-if="user.userRole == 1" href="#/invitation-visitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
+                        </a>
+                        <a nav-direction="forward" ng-if="user.userRole == 2" href="#/signup-visitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
                         </a>
                     </div>
                     <div class="col-5"></div>
