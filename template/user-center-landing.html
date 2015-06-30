@@ -1,19 +1,28 @@
 <ion-view cache-view="false">
     <style>
-        .user-center-header, .user-center-header-row{
+        .user-center-header{
+            position: absolute;
+            bottom: 65px;
+            top:0;
+            height: auto;
+        }
+        .user-center-header-row{
             height: 100% !important;
-            background-color: transparent !important;
-            padding-bottom: 65px;
 
+        }
+        .user-center-header{
+            background-color: #47A0DB !important;
         }
         .user-center-header-row h4{
             color: white;
-            top: 10px;
+            top: 20px;
             position: absolute;
-            width: 33.333%;
+            width: 100%;
         }
-        .view-container .pane{
 
+        ion-footer-bar{
+            pointer-events: none;
+            cursor: default;
         }
         ion-footer-bar .button.active, ion-footer-bar .button.activated {
             border-color: transparent;

@@ -40,6 +40,7 @@ angular.module('app.controllers', [])
                 }
                 else{
                     $scope.passList = data.data;
+                    $location.path('/user-center/tabs/ongoing');
                 }
             }).
             error(function(data, status, headers, config) {
