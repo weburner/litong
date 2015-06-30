@@ -9109,7 +9109,7 @@ a.button {
 .qr-card .item h2 {
   font-size: 21px;
   color: #48A0DC;
-  margin-top: 0; }
+  margin-top: 10px; }
 
 #qr-card-visitor .list.qr-card .item:last-child {
   text-align: left; }

@@ -195,8 +195,6 @@ $item-padding: 12px !default;
   -webkit-box-orient: vertical;
 }
 
-
-
 .flex-y-center {
   -webkit-box-align: center; /* 纵向居中 */
   -moz-box-align: center;
@@ -361,8 +359,9 @@ width: auto;
 .qr-card .item h2 {
   font-size: 21px;
   color: #48A0DC;
-  margin-top: 0;
+  margin-top: 10px;
 }
+
 
 #qr-card-visitor .list.qr-card .item:last-child {
   text-align: left;
