@@ -3,12 +3,13 @@
         <img src="img/icon-arrow-back.svg" class="nav-icon">
     </button>
 
-    <ion-content scroll="false" class="no-header content-wraper cover-image"
+    <ion-content scroll="false" padding="true" class="no-header content-wraper cover-image"
                  style="background-image: url('img/manage-user-bg.jpg')">
-        <div class="row flex-vertical text-center" style="height: 100%;">
 
-            <div class="col">
-                <div class="spacer-30"></div>
+        <div class="spacer-30"></div>
+
+        <div class="row flex-vertical text-center" style="height: 100%;">
+            <div class="col-33" style="max-width: 100%">
                 <div class="cover-image avatar user-avatar" style="background-image: url('img/avatar.png')"></div>
                 <h3 class="">
                     Victoria Gilson
@@ -24,19 +25,16 @@
                 </h2>
             </div>
 
-            <div class="col">
-                <div class="spacer-30"></div>
-                <button class="button icon ion-android-call btn-call"></button>
-            </div>
-
-            <div class="col-30">
-                <div class="row">
-                    <button class="col button button-positive" style="margin: 0 10px;">开启</button>
-                    <button class="col button button-balanced" style="margin: 0 10px;">关闭</button>
+            <div class="col-50 row row-center" style="max-width: 100%">
+                <div class="col">
+                    <button class="button icon ion-android-call btn-call"></button>
                 </div>
             </div>
+        </div>
 
-            <div class="spacer-20"></div>
+        <div class="row btn-bottom" style="width: auto">
+            <button class="col button button-positive" style="margin-right: 5px;">开启</button>
+            <button class="col button button-balanced" style="margin-left: 5px;">关闭</button>
         </div>
     </ion-content>
 

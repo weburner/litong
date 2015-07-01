@@ -8900,6 +8900,12 @@ a.button {
   margin-top: 50px;
   margin-bottom: 50px; }
 
+.btn-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  right: 15px; }
+
 .avatar {
   margin: 0 auto; }
 
@@ -8944,6 +8950,9 @@ a.button {
 .spacer-150 {
   height: 150px; }
 
+.spacer-44 {
+  height: 44px; }
+
 .spacer-30 {
   height: 30px; }
 
@@ -8985,6 +8994,9 @@ a.button {
 
 .align-right {
   float: right; }
+
+.row {
+  padding: 0; }
 
 /* landing */
 #landing {
@@ -9028,11 +9040,12 @@ a.button {
   top: 10px; }
 
 /* verifying User */
-.content-wraper, .content-wraper h3, .content-wraper .col h2 {
+.content-wraper, .content-wraper h3, .content-wraper .col-33 h2, .content-wraper .col-50 h2 {
   color: #ffffff; }
 
 .content-wraper h3 {
-  font-size: 18px; }
+  font-size: 18px;
+  line-height: 27px; }
 
 .content-wraper p {
   font-size: 12px; }
