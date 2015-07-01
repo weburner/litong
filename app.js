@@ -97,7 +97,7 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
         ;
 
-        $urlRouterProvider.otherwise('/user-center/tabs/ongoing');
+        $urlRouterProvider.otherwise('/user-center/landing');
     })
     .directive('headerShrink', function ($document) {
         var fadeAmt;
