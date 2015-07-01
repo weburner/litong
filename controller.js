@@ -11,7 +11,7 @@ if(false){
             $location.path('/follow-visitor');
         }
         else{
-            $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
+            $http.post(apiEndpoint + "check-user", {'openId':"o8oequPWtqd8I9Bvx4wsHMRAxpsI"}).
                 success(function(data, status, headers, config) {
                     console.log(data.data);
                     if(data.status == 1){
