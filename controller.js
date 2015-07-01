@@ -41,21 +41,21 @@ angular.module('app.controllers', [])
                 console.log(data.data);
                 if($rootScope.user.userRole == 2){
                     if(!data.data){
-                        $location.path('/user-center/landing');
+//                        $location.path('/user-center/landing');
                     }
                     else{
                         $scope.passList = data.data;
                         console.log($scope.passList);
-                        $location.path('/user-center/visitor');
+//                        $location.path('/user-center/visitor');
                     }
                 }
                 else{
                     if(!data.data){
-                        $location.path('/user-center/landing');
+//                        $location.path('/user-center/landing');
                     }
                     else{
                         $scope.passList = data.data;
-                        $location.path('/user-center/tabs/ongoing');
+//                        $location.path('/user-center/tabs/ongoing');
                     }
                 }
             }).
