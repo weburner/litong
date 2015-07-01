@@ -1,5 +1,5 @@
 <ion-view title="qr-card-user">
-    <a class="button button-clear" nav-direction="back" href="#/landing" style="  z-index: 99;">
+    <a class="button button-clear" nav-direction="back" ng-click="goBackHistory()" style="z-index: 99;">
         <img src="img/icon-arrow-back.svg" class="nav-icon">
     </a>
     <ion-content scroll="false" id="qr-card-visitor" class="no-header cover-image" style="background-image: url('img/qr-card-bg.jpg')">
@@ -8,31 +8,32 @@
         <div class="list card text-center qr-card">
             <div class="item no-border">
                 <div class="cover-image avatar user-avatar"
-                     style="background-image: url('img/avatar.png')"></div>
+                     ng-style="{'background-image': 'url('+card.passUser.avatar+')'} "></div>
                 <div class="spacer-10"></div>
-                <div class="item-title">Ariana Attwood</div>
+                <div class="item-title">{{card.passUser.name}}</div>
                 <h2>
-                    12:30
+                    {{card.passValFrom | date:"h:mm"}}
                     <img class="icon-arrows" src="img/icon-arrows.svg">
-                    17:30
+                    {{card.passValTo | date:"h:mm"}}
                 </h2>
             </div>
 
             <div class="item item-body no-border row qr-body">
                 <div class="col col-center">
                     <div>
-                        <img class="qr-big" src="img/qr-icon-dark.svg">
+                        <img ng-if="card.passStatus == 2" class="qr-small" src="img/qr-icon-dark.svg">
+                        <img ng-if="card.passStatus == 1" class="qr-big" ng-src="{{card.passCode}}">
                     </div>
 
-                    <div class="item-des">二维码每分钟自动更新</div>
-                    <div class="item-des" style="display: none">您的二维码还未生效</br>请耐心等待</div>
+                    <div ng-if="card.passStatus == 1" class="item-des">二维码每分钟自动更新</div>
+                    <div ng-if="card.passStatus == 2" class="item-des">您的二维码还未生效</br>请耐心等待</div>
                 </div>
             </div>
 
             <div class="item item-avatar no-border card-bottom">
-                <img src="img/avatar.png">
-                <div class="item-title">Sara Cramer</div>
-                <div class="item-sub-title">利通广场7楼，广州范思可信息科技</div>
+                <img ng-src="{{card.passSender.avatar}}">
+                <div class="item-title">{{card.passSender.name}}</div>
+                <div class="item-sub-title">利通广场{{card.passFloor}}楼，{{card.passCompany}}</div>
             </div>
         </div>
 

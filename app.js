@@ -8,8 +8,7 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
             .state('signupVisitor', {
                 url: '/signup-visitor',
-                templateUrl: 'template/signup-visitor.html',
-                controller: 'FormCtrl'
+                templateUrl: 'template/signup-visitor.html'
             })
             .state('signupUser', {
                 url: '/signup-user',
@@ -31,8 +30,7 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
             .state('invitationVisitor', {
                 url: '/invitation-visitor',
-                templateUrl: 'template/invitation-form.html',
-                controller: 'FormCtrl'
+                templateUrl: 'template/invitation-form.html'
             })
             .state('userCenter.tabs', {
                 url: '/tabs',
@@ -89,11 +87,13 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
             .state('qrCardUser', {
                 url: '/qr-card-user',
-                templateUrl: 'template/qr-card-user.html'
+                templateUrl: 'template/qr-card-user.html',
+                controller: 'QrCardUserCtrl'
             })
             .state('qrCardVisitor', {
-                url: '/qr-card-visitor',
-                templateUrl: 'template/qr-card-visitor.html'
+                url: '/qr-card-visitor/:id',
+                templateUrl: 'template/qr-card-visitor.html',
+                controller: 'QrCardVisitorCtrl'
             })
         ;
 
@@ -112,7 +112,6 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                     if(i != 0){
                         header.children[i].style.opacity = fadeAmt;
                     }
-
                 }
             });
         };

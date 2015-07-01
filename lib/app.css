@@ -9122,6 +9122,9 @@ a.button {
   font-size: 12px;
   opacity: .6; }
 
+#qr-card-user .item-des {
+  margin-top: 5px; }
+
 .qr-big {
   width: 130px;
   height: auto; }
@@ -9228,3 +9231,6 @@ a.button {
   width: 14px;
   height: auto;
   margin-right: 5px; }
+
+.item-input.item-button-right {
+  padding-right: 100px; }

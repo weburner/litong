@@ -23,12 +23,12 @@
 
     <ion-content header-shrink scroll-event-interval="5" padding="true" class="no-header" scrollbar-y="false">
         <div style="height: 190px;"></div>
-        <form>
+        <form name="signUpForm" novalidate ng-controller="SignUpFormCtrl">
             <ion-list>
                 <label class="item item-input border-bottom">
                     <span class="input-label">姓名</span>
-                    <input ng-model="user.name" type="text" placeholder="">
-                    <input ng-model="user.openId" type="hidden">
+                    <input name="username" ng-model="user.name" type="text" placeholder="">
+                    <input name="openId" ng-model="user.openId" type="hidden">
                 </label>
                 <label class="item item-select border-bottom">
                     <span class="input-label">选择您访问的楼层</span>
@@ -37,8 +37,8 @@
                     </select>
                 </label>
                 <label class="item item-select border-bottom">
-                    <span class="input-label">选择您访问的企业</span>
-                    <select ng-model="companyId" ng-change="changedValue(companyId)" >
+                    <span class="input-label">选择您访问的企业{{companyId}}</span>
+                    <select name="passCompany" ng-model="company" ng-change="changedValue(company)" >
                         <option ng-repeat="(key, value) in $root.companyList[floorNumb]['companyList']" value="{{value.id}}">{{value.name}}</option>
                     </select>
                 </label>
@@ -53,39 +53,39 @@
                                       placeholder="填写拜访对象姓名"
                                       items-clicked-method="itemsClicked(callback)"
                                       select-items-label="从下列列表中选择..."
-                                      selected-items-label="Selected:"/>
+                                      selected-items-label="Selected:"
+                                      required/>
                 </label>
                 <label class="item item-input border-bottom item-icon-right">
                     <span class="input-label">到访日期</span>
-                    <input type="date" placeholder="">
+                    <input name="passValDate" type="date" ng-model="passValDate" placeholder="" required>
                     <img class="icon" src="img/icon-calender.svg">
                 </label>
                 <label class="item item-input border-bottom item-icon-right">
                     <span class="input-label">到达时间</span>
-                    <input type="time" placeholder="">
+                    <input name="passValFrom" type="time" ng-model="passValFrom" placeholder="" required>
                     <img class="icon" src="img/icon-clock.svg">
                 </label>
                 <label class="item item-input border-bottom item-icon-right">
                     <span class="input-label">离开时间</span>
-                    <input type="time" placeholder="">
+                    <input name="passValTo" type="time" ng-model="passValTo" placeholder="" required>
                     <img class="icon" src="img/icon-clock.svg">
                 </label>
                 <label class="item item-input border-bottom">
                     <span class="input-label">到访人数</span>
-                    <input type="tel" placeholder="">
+                    <input name="passNumber" type="tel" ng-model="passNumber" placeholder="" required>
                 </label>
                 <label class="item item-input border-bottom">
                     <span class="input-label">手机号码</span>
-                    <input type="tel" placeholder="">
+                    <input name="mobile" type="tel" ng-model="mobileNum" placeholder="" ng-pattern="/\d{11}/" ng-maxlength=11 required>
                 </label>
+                <div class="item item-input item-button-right border-bottom">
+                    <span class="input-label">验证码</span>
+                    <input name="mobileValidate" type="tel" ng-model="mobileValidate" placeholder="" ng-pattern="/\d{6}/" ng-maxlength=6 required>
+                    <button ng-disabled="!signUpForm.mobile.$valid || counter<60" ng-click="mobileCheck()" class="button button-small button-balanced" style="min-width: 80px;"><span ng-if="counter < 60"> {{counter}}秒后再试</span><span ng-if="counter == 60">获取验证码</span></button>
+                </div>
             </ion-list>
-            <label class="item item-input item-button-right border-bottom">
-                <span class="input-label">验证码</span>
-                <input type="tel" placeholder="">
-                <button class="button button-small button-balanced">获取验证码</button>
-            </label>
-
-            <a href="#/" class="button button-light button-block btn-submit">提交申请</a>
+            <button ng-disabled="!signUpForm.$valid" ng-click="submitSignUpVisitor()" class="button button-light button-block btn-submit">提交申请</button>
         </form>
 
         <div class="brand text-center">叩叩微信访客系统™</div>
