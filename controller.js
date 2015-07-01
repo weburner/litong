@@ -7,16 +7,13 @@ angular.module('app.controllers', [])
         $scope.registerData={};
 
 
-        if (!$rootScope.user && localStorage.getItem('user')){
-            $rootScope.user = JSON.parse(localStorage.getItem('user'));
-            console.log($rootScope.user);
+if(false){
+            $location.path('/follow-visitor');
         }
-//        else if(window.weixinData.nickname != undefined){
-//            $location.path('/follow-visitor');
-//        }
         else{
             $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
                 success(function(data, status, headers, config) {
+                    console.log(data.data);
                     if(data.status == 1){
                         localStorage.setItem('user', JSON.stringify(data.data));
                         $rootScope.user = data.data;
@@ -36,39 +33,41 @@ angular.module('app.controllers', [])
     })
     .controller('UserCenterCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $location) {
         console.log($rootScope.user);
+        setTimeout(function(){
         $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
             success(function(data, status, headers, config) {
                 console.log(data.data);
                 if($rootScope.user.userRole == 2){
                     if(!data.data){
-//                        $location.path('/user-center/landing');
+                        $location.path('/user-center/landing');
                     }
                     else{
                         $scope.passList = data.data;
                         console.log($scope.passList);
-//                        $location.path('/user-center/visitor');
+                        $location.path('/user-center/visitor');
                     }
                 }
                 else{
                     if(!data.data){
-//                        $location.path('/user-center/landing');
+                        $location.path('/user-center/landing');
                     }
                     else{
                         $scope.passList = data.data;
-//                        $location.path('/user-center/tabs/ongoing');
+                        $location.path('/user-center/tabs/ongoing');
                     }
                 }
             }).
             error(function(data, status, headers, config) {
                 console.log(status);
             });
+        }, 1000);
 
         setTimeout(function(){
             $scope.onTabSelected = function(){
                 $ionicScrollDelegate.$getByHandle('tab-1-content').scrollTop(true);
                 $ionicScrollDelegate.$getByHandle('tab-2-content').scrollTop(true);
             }
-        }, 100);
+        }, 1000);
     })
     .controller('SignUpFormCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $timeout) {
         $scope.counter = 60;
@@ -137,9 +136,9 @@ angular.module('app.controllers', [])
                         }
                         else if(data.status == 1){
 
+                            alert(data.statusMsg);
+                            $location.path('/user-center/landing');
                         }
-                        console.log(data);
-
                     }).
                     error(function(data, status, headers, config) {
                         // called asynchronously if an error occurs
@@ -157,28 +156,28 @@ angular.module('app.controllers', [])
                 "passCompany": $scope.signUpForm.passCompany.$modelValue,
                 "cardId": $scope.signUpForm.cardId.$modelValue
             };
-            console.log(formData);
+//            console.log(formData);
 
-//            if($scope.signUpForm.$valid){
-//                $http.post(apiEndpoint + "sign-up",
-//                        formData
-//                    ).
-//                    success(function(data, status, headers, config) {
-//                        if(data.status == 0){
-//                            alert(data.statusMsg);
-//                        }
-//                        else if(data.status == 1){
-//
-//                        }
-//                        console.log(data);
-//
-//                    }).
-//                    error(function(data, status, headers, config) {
-//                        // called asynchronously if an error occurs
-//                        // or server returns response with an error status.
-//                        console.log(status);
-//                    });
-//            }
+            if($scope.signUpForm.$valid){
+                $http.post(apiEndpoint + "sign-up",
+                        formData
+                    ).
+                    success(function(data, status, headers, config) {
+                        if(data.status == 0){
+                            alert(data.statusMsg);
+                        }
+                        else if(data.status == 1){
+                            alert(data.statusMsg);
+                            $location.path('/user-center/landing');
+                        }
+
+                    }).
+                    error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                        console.log(status);
+                    });
+            }
         }
         $scope.mobileCheck = function(){
             $scope.countdown();
