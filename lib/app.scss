@@ -466,13 +466,15 @@ $item-padding: 12px !default;
   z-index: 100;
 }
 
-.item-content:before {
+#visitor-center .list:before {
   content: "";
   position: absolute;
+  top: 35px;
   left: 21px;
   height: 100%;
   width: 1px;
   border-left: 1px solid #D8D8D8;
+  z-index: 2;
 }
 
 .item {
@@ -481,6 +483,7 @@ $item-padding: 12px !default;
 
 .item-avatar, .item-avatar .item-content {
   min-height: 70px;
+  background-color: transparent;
 }
 
 .item h2.item-title {
@@ -498,6 +501,7 @@ $item-padding: 12px !default;
   width: 10px;
   height: 10px;
   top: 30px;
+//  left: -5px;
 }
 
 .header-title {

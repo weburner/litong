@@ -9192,19 +9192,22 @@ a.button {
   border-bottom: 1px solid #D8D8D8;
   z-index: 100; }
 
-.item-content:before {
+#visitor-center .list:before {
   content: "";
   position: absolute;
+  top: 35px;
   left: 21px;
   height: 100%;
   width: 1px;
-  border-left: 1px solid #D8D8D8; }
+  border-left: 1px solid #D8D8D8;
+  z-index: 2; }
 
 .item {
   margin: 0; }
 
 .item-avatar, .item-avatar .item-content {
-  min-height: 70px; }
+  min-height: 70px;
+  background-color: transparent; }
 
 .item h2.item-title {
   font-size: 18px;
