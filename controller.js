@@ -11,9 +11,9 @@ angular.module('app.controllers', [])
             $rootScope.user = JSON.parse(localStorage.getItem('user'));
             console.log($rootScope.user);
         }
-        else if(window.weixinData.nickname != undefined){
-            $location.path('/follow-visitor');
-        }
+//        else if(window.weixinData.nickname != undefined){
+//            $location.path('/follow-visitor');
+//        }
         else{
             $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
                 success(function(data, status, headers, config) {

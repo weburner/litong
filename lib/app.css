@@ -9019,7 +9019,8 @@ a.button {
 
 /* signup-user */
 .title h4 {
-  color: #ffffff; }
+  color: #ffffff;
+  text-align: center; }
 
 .input-label, .item-select select {
   color: #546979;
