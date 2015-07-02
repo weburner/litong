@@ -12,9 +12,9 @@
                 <div class="spacer-10"></div>
                 <div class="item-title">{{card.passUser.name}}</div>
                 <h2>
-                    {{card.passValFrom | date:"h:mm"}}
+                    {{card.passValFrom * 1000 | date:"h:mm"}}
                     <img class="icon-arrows" src="img/icon-arrows.svg">
-                    {{card.passValTo | date:"h:mm"}}
+                    {{card.passValTo * 1000 | date:"h:mm"}}
                 </h2>
             </div>
 
