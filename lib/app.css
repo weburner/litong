@@ -8995,6 +8995,11 @@ a.button {
   font-size: 12px;
   opacity: 0.4; }
 
+.form-brand {
+  font-size: 12px;
+  opacity: 0.4;
+  padding-bottom: 10px; }
+
 .brand-white {
   color: #ffffff; }
 
