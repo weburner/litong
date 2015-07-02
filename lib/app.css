@@ -9206,8 +9206,9 @@ a.button {
 .item-avatar, .item-avatar .item-content {
   min-height: 70px; }
 
-.item .item-title {
-  font-size: 18px; }
+.item h2.item-title {
+  font-size: 18px;
+  color: #546979; }
 
 .item .item-sub-title {
   font-size: 10px;

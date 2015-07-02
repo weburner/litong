@@ -483,8 +483,9 @@ $item-padding: 12px !default;
   min-height: 70px;
 }
 
-.item .item-title {
+.item h2.item-title {
   font-size: 18px;
+  color: #546979;
 }
 
 .item .item-sub-title {
