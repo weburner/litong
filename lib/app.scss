@@ -97,6 +97,13 @@ $item-padding: 12px !default;
   margin-bottom: 50px;
 }
 
+.btn-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  right: 15px;
+}
+
 // avatar
 .avatar {
   margin: 0 auto;
@@ -154,6 +161,10 @@ $item-padding: 12px !default;
   height: 150px;
 }
 
+.spacer-44 {
+  height: 44px;
+}
+
 .spacer-30 {
   height: 30px;
 }
@@ -182,28 +193,11 @@ $item-padding: 12px !default;
 // css for every template
 /* basic */
 
-.flex {
-  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
-  display: flex;
-}
-
 .flex-vertical {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-orient: vertical;
-}
-
-.flex-y-center {
-  -webkit-box-align: center; /* 纵向居中 */
-  -moz-box-align: center;
-  align-items: center;
-}
-
-.flex-x-center {
-  -webkit-box-pack: center; /* 横向居中 */
-  justify-content: center;
 }
 
 .default-bar-header {
@@ -225,6 +219,10 @@ $item-padding: 12px !default;
 
 .align-right {
   float: right;
+}
+
+.row {
+  padding: 0;
 }
 
 /* landing */
@@ -278,12 +276,13 @@ $item-padding: 12px !default;
 }
 
 /* verifying User */
-.content-wraper, .content-wraper h3, .content-wraper .col h2 {
+.content-wraper, .content-wraper h3, .content-wraper .col-33 h2, .content-wraper .col-50 h2 {
   color: #ffffff;
 }
 
 .content-wraper h3 {
   font-size: 18px;
+  line-height: 27px;
 }
 
 .content-wraper p {
@@ -338,10 +337,10 @@ $item-padding: 12px !default;
 
 /* qr-card */
 .qr-card {
-width: auto;
+  width: auto;
   overflow: visible;
   position: absolute;
-  top:60px;
+  top: 60px;
   left: 20px;
   right: 20px;
   bottom: 40px;
@@ -362,10 +361,9 @@ width: auto;
   margin-top: 10px;
 }
 
-
 #qr-card-visitor .list.qr-card .item:last-child {
   text-align: left;
-//  padding-top: 12px;
+  //  padding-top: 12px;
 }
 
 .qr-card .item:first-child {
@@ -391,20 +389,23 @@ width: auto;
   width: 42px;
   height: auto;
 }
-.qr-body{
+
+.qr-body {
   position: absolute;
-  top:20px;
+  top: 20px;
   left: 20px;
   right: 20px;
   bottom: 20px;
   width: auto;
   background-color: transparent;
 }
-.card-bottom{
+
+.card-bottom {
   position: absolute;
   bottom: 10px;
   width: 100%;
 }
+
 .location {
   font-size: 12px;
 }
@@ -413,6 +414,11 @@ width: auto;
   width: 12px;
   height: auto;
   margin-bottom: -3px;
+}
+
+/* user-center-tabs */
+.tabs-light > .tabs, .tabs.tabs-light {
+  border-color: #CCCCCC;
 }
 
 .ion-autocomplete-container .bar-header {
@@ -507,6 +513,7 @@ width: auto;
   height: auto;
   margin-right: 5px;
 }
-.item-input.item-button-right{
+
+.item-input.item-button-right {
   padding-right: 100px;
 }

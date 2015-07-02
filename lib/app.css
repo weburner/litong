@@ -8900,6 +8900,12 @@ a.button {
   margin-top: 50px;
   margin-bottom: 50px; }
 
+.btn-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  right: 15px; }
+
 .avatar {
   margin: 0 auto; }
 
@@ -8944,6 +8950,9 @@ a.button {
 .spacer-150 {
   height: 150px; }
 
+.spacer-44 {
+  height: 44px; }
+
 .spacer-30 {
   height: 30px; }
 
@@ -8964,29 +8973,11 @@ a.button {
   border: none; }
 
 /* basic */
-.flex {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: flex; }
-
 .flex-vertical {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-orient: vertical; }
-
-.flex-y-center {
-  -webkit-box-align: center;
-  /* 纵向居中 */
-  -moz-box-align: center;
-  align-items: center; }
-
-.flex-x-center {
-  -webkit-box-pack: center;
-  /* 横向居中 */
-  justify-content: center; }
 
 .default-bar-header {
   height: 44px; }
@@ -9003,6 +8994,9 @@ a.button {
 
 .align-right {
   float: right; }
+
+.row {
+  padding: 0; }
 
 /* landing */
 #landing {
@@ -9046,11 +9040,12 @@ a.button {
   top: 10px; }
 
 /* verifying User */
-.content-wraper, .content-wraper h3, .content-wraper .col h2 {
+.content-wraper, .content-wraper h3, .content-wraper .col-33 h2, .content-wraper .col-50 h2 {
   color: #ffffff; }
 
 .content-wraper h3 {
-  font-size: 18px; }
+  font-size: 18px;
+  line-height: 27px; }
 
 .content-wraper p {
   font-size: 12px; }
@@ -9154,6 +9149,10 @@ a.button {
   width: 12px;
   height: auto;
   margin-bottom: -3px; }
+
+/* user-center-tabs */
+.tabs-light > .tabs, .tabs.tabs-light {
+  border-color: #CCCCCC; }
 
 .ion-autocomplete-container .bar-header {
   height: 44px; }
