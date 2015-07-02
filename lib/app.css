@@ -8995,6 +8995,11 @@ a.button {
   font-size: 12px;
   opacity: 0.4; }
 
+.form-brand {
+  font-size: 12px;
+  opacity: 0.4;
+  padding-bottom: 10px; }
+
 .brand-white {
   color: #ffffff; }
 
@@ -9039,7 +9044,7 @@ a.button {
 
 .item-icon-right .icon {
   right: 0px;
-  top: 48%;
+  top: 35%;
   width: 13px;
   height: auto; }
 
@@ -9264,3 +9269,12 @@ a.button {
 
 .item-input.item-button-right {
   padding-right: 100px; }
+
+/* user-center-tabs */
+.tab-item {
+  width: 50%;
+  max-width: 50%;
+  border-right: 1px solid #CCCCCC; }
+
+.tab-item:last-child {
+  border-right: none; }

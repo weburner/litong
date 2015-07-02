@@ -215,9 +215,14 @@ $item-padding: 12px !default;
   position: absolute;
   bottom: 20px;
   width: 100%;
-
   font-size: 12px;
   opacity: 0.4;
+}
+
+.form-brand {
+  font-size: 12px;
+  opacity: 0.4;
+  padding-bottom: 10px;
 }
 
 .brand-white {
@@ -274,7 +279,7 @@ $item-padding: 12px !default;
 
 .item-icon-right .icon {
   right: 0px;
-  top: 48%;
+  top: 35%;
   width: 13px;
   height: auto;
 }
@@ -552,4 +557,15 @@ $item-padding: 12px !default;
 
 .item-input.item-button-right {
   padding-right: 100px;
+}
+
+/* user-center-tabs */
+.tab-item {
+  width: 50%;
+  max-width: 50%;
+  border-right: 1px solid #CCCCCC;
+}
+
+.tab-item:last-child {
+  border-right: none;
 }
