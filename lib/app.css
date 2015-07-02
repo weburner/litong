@@ -9204,7 +9204,8 @@ a.button {
   bottom: 15px;
   width: 100%;
   position: absolute;
-  left: 0; }
+  left: 0;
+  text-align: center; }
 
 .tab-item {
   opacity: 1;
