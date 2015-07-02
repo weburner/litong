@@ -7,13 +7,16 @@ angular.module('app.controllers', [])
         $scope.registerData={};
 
 
-if(false){
+        if (!$rootScope.user && localStorage.getItem('user')){
+            $rootScope.user = JSON.parse(localStorage.getItem('user'));
+            console.log($rootScope.user);
+        }
+        else if(window.weixinData.nickname != undefined){
             $location.path('/follow-visitor');
         }
         else{
             $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
                 success(function(data, status, headers, config) {
-                    console.log(data.data);
                     if(data.status == 1){
                         localStorage.setItem('user', JSON.stringify(data.data));
                         $rootScope.user = data.data;
@@ -33,7 +36,6 @@ if(false){
     })
     .controller('UserCenterCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $location) {
         console.log($rootScope.user);
-        setTimeout(function(){
         $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
             success(function(data, status, headers, config) {
                 console.log(data.data);
@@ -60,14 +62,13 @@ if(false){
             error(function(data, status, headers, config) {
                 console.log(status);
             });
-        }, 1000);
 
         setTimeout(function(){
             $scope.onTabSelected = function(){
                 $ionicScrollDelegate.$getByHandle('tab-1-content').scrollTop(true);
                 $ionicScrollDelegate.$getByHandle('tab-2-content').scrollTop(true);
             }
-        }, 1000);
+        }, 100);
     })
     .controller('SignUpFormCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $timeout) {
         $scope.counter = 60;
@@ -83,9 +84,7 @@ if(false){
                 $timeout.cancel(stopped);
                 $scope.counter = 60;
             }
-
         };
-
 
         $http.post(apiEndpoint + "company-list").
             success(function(data, status, headers, config) {
