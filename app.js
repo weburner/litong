@@ -1,4 +1,4 @@
-angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplete'])
+angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplete','ionic-datepicker','ionic-timepicker'])
     .constant('apiEndpoint', 'http://weixin.leatop.com/leatop/jsapi/')
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -213,6 +213,45 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                         shrink(header, $element[0], 0, headerHeight);
                     }
                 });
+            }
+        };
+    })
+    .directive('standardTimeNoMeridian', function () {
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                etime: '=etime'
+            },
+            template: "<span>{{stime}}</span>",
+            link: function (scope, elem, attrs) {
+
+                scope.stime = epochParser(scope.etime, 'time');
+
+                function prependZero(param) {
+                    if (String(param).length < 2) {
+                        return "0" + String(param);
+                    }
+                    return param;
+                }
+
+                function epochParser(val, opType) {
+                    if (val === null) {
+                        return "00:00";
+                    } else {
+                        if (opType === 'time') {
+                            var hours = parseInt(val / 3600);
+                            var minutes = (val / 60) % 60;
+
+                            return (prependZero(hours) + ":" + prependZero(minutes));
+                        }
+                    }
+                }
+
+                scope.$watch('etime', function (newValue, oldValue) {
+                    scope.stime = epochParser(scope.etime, 'time');
+                });
+
             }
         };
     })

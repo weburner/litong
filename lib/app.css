@@ -8912,7 +8912,13 @@ a.button {
 .avatar-bg {
   width: 120px;
   height: 120px;
-  background-image: url("../img/avatar-bg.svg"); }
+  background-image: url("../img/avatar-bg.svg");
+  position: relative; }
+
+.avatar-bg .user-avatar-large {
+  position: absolute;
+  left: 15px;
+  top: 15px; }
 
 .user-avatar {
   width: 70px;

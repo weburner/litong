@@ -7,6 +7,8 @@
 
     <link href="lib/app.css" rel="stylesheet">
     <link href="lib/ion-autocomplete.min.css" rel="stylesheet">
+    <link href="lib/ionic-datepicker/style.css" rel="stylesheet">
+    <link href="lib/ionic-timepicker/style.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic.bundle.min.js"></script>
@@ -15,9 +17,20 @@
     <script src="controller.js"></script>
     <script src="services.js"></script>
 
+
+
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-datepicker/templates.js"></script>
+    <script src="lib/ionic-datepicker/ionic-datepicker.js"></script>
+
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-timepicker/templates.js"></script>
+    <script src="lib/ionic-timepicker/ionic-timepicker.js"></script>
+
 </head>
 <body ng-app="app" animation="slide-left-right-ios7" ng-controller="AppCtrl">
 
+<button class="button" onclick="window.location.reload()" style="position: absolute;z-index:999;">reload</button>
 <ion-nav-view></ion-nav-view>
 
 
