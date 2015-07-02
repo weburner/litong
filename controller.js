@@ -15,7 +15,7 @@ angular.module('app.controllers', [])
             $location.path('/follow-visitor');
         }
         else{
-            $http.post(apiEndpoint + "check-user", {'openId':"o8oequPWtqd8I9Bvx4wsHMRAxpsI"}).
+            $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
                 success(function(data, status, headers, config) {
                     if(data.status == 1){
                         localStorage.setItem('user', JSON.stringify(data.data));
