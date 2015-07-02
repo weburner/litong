@@ -67,7 +67,7 @@
                 <label class="item item-input border-bottom item-icon-right">
                     <span class="input-label">到达时间</span>
                     <!--<input name="passValFrom" type="time" ng-model="passValFrom" placeholder="" required>-->
-                    <ionic-timepicker etime="slots[0].epochTime" format="slots[0].format" step="slots[0].step" callback="timePickerCallback">
+                    <ionic-timepicker etime="slots[0].epochTime" format="slots[0].format" step="slots[0].step" callback="timePickerFromCallback">
                         <button class="button button-block button-clear">
                             <standard-time-no-meridian etime='slots[0].epochTime'></standard-time-no-meridian>
                         </button>
@@ -77,7 +77,7 @@
                 <label class="item item-input border-bottom item-icon-right">
                     <span class="input-label">离开时间</span>
                     <!--<input name="passValTo" type="time" ng-model="passValTo" placeholder="" required>-->
-                    <ionic-timepicker etime="slots[1].epochTime" format="slots[1].format" step="slots[1].step" callback="timePickerCallback">
+                    <ionic-timepicker etime="slots[1].epochTime" format="slots[1].format" step="slots[1].step" callback="timePickerToCallback">
                         <button class="button button-block button-clear">
                             <standard-time-no-meridian etime='slots[1].epochTime'></standard-time-no-meridian>
                         </button>

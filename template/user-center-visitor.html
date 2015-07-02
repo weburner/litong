@@ -4,7 +4,7 @@
         <ion-item ng-repeat="pass in passList | filter:{ passStatus: 1 }" class="item-avatar item-icon-right border-bottom-half">
             <img ng-src="{{pass.passUser.avatar}}">
             <div class="item-title">{{pass.passUser.name}}</div>
-            <div class="item-sub-title">{{pass.passValFrom | date:"MM/dd h:mm"}}-{{pass.passValTo | date:'h:mm'}}</div>
+            <div class="item-sub-title">{{pass.passValFrom * 1000 | date:'MM/dd hh:mm'}}-{{pass.passValTo * 1000 | date:'hh:mm'}}</div>
             <img src="img/icon-open.svg" class="icon" style="width: 20px; right:20px;"/>
         </ion-item>
     </ion-list>
