@@ -31,13 +31,13 @@
                     <input name="openId" ng-model="user.openId" type="hidden">
                 </label>
                 <label class="item item-select border-bottom">
-                    <span class="input-label">选择您访问的楼层</span>
+                    <span class="input-label">选择您所在的楼层</span>
                     <select ng-model="floorNumb">
                         <option ng-repeat="(key, value) in $root.companyList" value="{{key}}">{{value.floor}} 层</option>
                     </select>
                 </label>
                 <label class="item item-select border-bottom">
-                    <span class="input-label">选择您访问的企业{{companyId}}</span>
+                    <span class="input-label">选择您所属的企业{{companyId}}</span>
                     <select name="passCompany" ng-model="company" required>
                         <option ng-repeat="(key, value) in $root.companyList[floorNumb]['companyList']" value="{{value.id}}">{{value.name}}</option>
                     </select>
