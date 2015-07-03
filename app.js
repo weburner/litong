@@ -10,6 +10,10 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                 url: '/signup-visitor',
                 templateUrl: 'template/signup-visitor.html'
             })
+            .state('signupVisitorWithData', {
+                url: '/signup-visitor/:id',
+                templateUrl: 'template/signup-visitor.html'
+            })
             .state('signupUser', {
                 url: '/signup-user',
                 templateUrl: 'template/signup-user.html'
@@ -76,8 +80,9 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
 
             .state('invitationUser', {
-                url: '/invitation-user',
-                templateUrl: 'template/invitation-user.html'
+                url: '/invitation-user/:id',
+                templateUrl: 'template/invitation-user.html',
+                controller: 'InvitationUser'
             })
             .state('followVisitor', {
                 url: '/follow-visitor',
