@@ -9133,7 +9133,7 @@ a.button {
   margin-top: 5px; }
 
 .qr-big {
-  width: 130px;
+  width: 95%;
   height: auto; }
 
 .qr-small {
@@ -9147,7 +9147,15 @@ a.button {
   right: 20px;
   bottom: 20px;
   width: auto;
-  background-color: transparent; }
+  background-color: transparent;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 .card-bottom {
   position: absolute;
@@ -9250,7 +9258,7 @@ a.button {
   opacity: 1;
   color: #38454F; }
 
-.menu .list .item {
+.menu .list .item, .menu .list .item-content {
   background-color: transparent;
   border: none;
   color: white;
@@ -9278,3 +9286,9 @@ a.button {
 
 .tab-item:last-child {
   border-right: none; }
+
+.header-button {
+  opacity: .5;
+  width: 66px;
+  height: 66px;
+  position: absolute; }

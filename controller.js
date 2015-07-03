@@ -3,37 +3,54 @@ angular.module('app.controllers', [])
         $scope.goBackHistory = function(){
             $window.history.back();
         };
-        if (!$rootScope.user && localStorage.getItem('user')){
-            $rootScope.user = JSON.parse(localStorage.getItem('user'));
-        }
-        else if(window && window.weixinData && window.weixinData.nickname != undefined){
+//        var lastclear = localStorage.getItem('lastclear'),
+//            time_now  = (new Date()).getTime();
+//        // .getTime() returns milliseconds so 1000 * 60 * 60 * 24 = 24 days
+//        if ((time_now - lastclear) > 1000 * 60 * 60 * 24) {
+//            localStorage.clear();
+//            localStorage.setItem('lastclear', time_now);
+//        }
+//
+//        if (!$rootScope.user && localStorage.getItem('user')){
+//            $rootScope.user = JSON.parse(localStorage.getItem('user'));
+//        }
+//        else
+        if(window && window.weixinData && !window.weixinData.nickname){
             $location.path('/follow-visitor');
         }
     })
     .controller('UserCenterCtrl', function (userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $location) {
+
+        $scope.showNoPending = function(){
+
+        }
+
+        $scope.isLanding = false;
         var getPassList = function(){
             $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
                 success(function(data, status, headers, config) {
-                    console.log(data.data);
                     if($rootScope.user.userRole == 2){
                         if(!data.data){
                             $location.path('/user-center/landing');
+                            $scope.isLanding = true;
                         }
                         else{
                             $scope.passList = data.data;
-                            console.log($scope.passList);
                             $location.path('/user-center/visitor');
                         }
                     }
                     else{
                         if(!data.data){
                             $location.path('/user-center/landing');
+                            $scope.isLanding = true;
                         }
                         else{
                             $scope.passList = data.data;
                             $location.path('/user-center/tabs/ongoing');
                         }
                     }
+
+                    console.log($scope.passList);
                 }).
                 error(function(data, status, headers, config) {
                     console.log(status);
@@ -130,6 +147,18 @@ angular.module('app.controllers', [])
                 console.log(status);
             });
 
+        $scope.submitInvitationForm = function(){
+            var formData = {   "userRole": 2,
+                "memberid": $rootScope.user.openId,  //被访者的openid
+                "passValFrom": new Date($scope.currentDate).getTime() / 1000 + $scope.slots[0].epochTime,
+                "passValTo": new Date($scope.currentDate).getTime() / 1000 + $scope.slots[1].epochTime,
+                "passCompany": $scope.signUpForm.passCompany.$modelValue, //被访公司的ID非公司名称
+                "passNumber": $scope.signUpForm.passNumber.$modelValue
+            };
+
+
+        }
+
         $scope.submitSignUpVisitor = function(){
             var formData = {   "userRole": 2,
                 "openId": $scope.signUpForm.openId.$modelValue, //来访者的openid
@@ -173,7 +202,7 @@ angular.module('app.controllers', [])
                 "passCompany": $scope.signUpForm.passCompany.$modelValue,
                 "cardId": $scope.signUpForm.cardId.$modelValue
             };
-//            console.log(formData);
+            console.log(formData);
 
             if($scope.signUpForm.$valid){
                 $http.post(apiEndpoint + "sign-up",
@@ -248,6 +277,7 @@ angular.module('app.controllers', [])
 
     })
     .controller('QrCardVisitorCtrl', function (userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+        var timer;
 
         var getQr = function(){
             var data = { "openId": $rootScope.user.openId,
@@ -259,6 +289,7 @@ angular.module('app.controllers', [])
                     console.log(data);
                     if(data.status == 0){
                         alert(data.statusMsg);
+                        $location.path('/landing');
                     }
                     else
                     {
@@ -270,6 +301,12 @@ angular.module('app.controllers', [])
                     // or server returns response with an error status.
                     console.log(status);
                 });
+            timer = $timeout(
+                function() {
+                    getQr();
+                },
+                15000
+            );
         }
 
         if($rootScope.user){
@@ -280,16 +317,26 @@ angular.module('app.controllers', [])
                 getQr();
             });
         }
+
+        $scope.$on(
+            "$destroy",
+            function( event ) {
+//                console.log('$destroy');
+                $timeout.cancel( timer );
+
+            }
+        );
     })
-    .controller('QrCardUserCtrl', function (userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+    .controller('QrCardUserCtrl', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+
+        var timer;
 
         var getQr = function(){
             var data = { "openId": $rootScope.user.openId};
-
             $http.post(apiEndpoint + "pass-code", data
                 ).
                 success(function(data, status, headers, config) {
-                    console.log(data);
+//                    console.log(data);
                     if(data.status == 0){
                         alert(data.statusMsg);
                     }
@@ -303,9 +350,16 @@ angular.module('app.controllers', [])
                     // or server returns response with an error status.
                     console.log(status);
                 });
+            timer = $timeout(
+                function() {
+                    getQr();
+                },
+                15000
+            );
         }
 
         if($rootScope.user){
+
             getQr();
         }
         else{
@@ -314,7 +368,93 @@ angular.module('app.controllers', [])
             });
         }
 
+        $scope.$on(
+            "$destroy",
+            function( event ) {
+//                console.log('$destroy');
+                $timeout.cancel( timer );
 
+            }
+        );
+    })
+    .controller('ManageUserCtrl', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+        var getPass = function(){
+            var data = {"passId": $stateParams.id};
 
+            $http.post(apiEndpoint + "pass-code", data)
+                .success(function(data, status, headers, config) {
+                    console.log(data);
+                    if(data.status == 0){
+                        alert(data.statusMsg);
+                        $location.path('/landing');
+                    }
+                    else
+                    {
+                        $scope.card = data.data;
+                    }
+                }).
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    console.log(status);
+                });
+        }
+
+        if($rootScope.user){
+            getPass();
+        }
+        else{
+            userInfoService.async().then(function(d) {
+                getPass();
+            });
+        }
+
+        $scope.openPass = function(){
+            var data = {
+                "openId": $rootScope.user.openId,
+                "passId": $stateParams.id
+            };
+
+            $http.post(apiEndpoint + "pass-open", data)
+                .success(function(data, status, headers, config) {
+                    console.log(data);
+                    if(data.status == 0){
+                        alert(data.statusMsg);
+                    }
+                    else
+                    {
+                        alert(data.statusMsg);
+                    }
+                }).
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    console.log(status);
+                });
+        }
+
+        $scope.closePass = function(){
+            var data = {
+                "openId": $rootScope.user.openId,
+                "passId": $stateParams.id
+            };
+
+            $http.post(apiEndpoint + "pass-close", data)
+                .success(function(data, status, headers, config) {
+                    console.log(data);
+                    if(data.status == 0){
+                        alert(data.statusMsg);
+                    }
+                    else
+                    {
+                        alert(data.statusMsg);
+                    }
+                }).
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    console.log(status);
+                });
+        }
     })
 ;

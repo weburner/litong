@@ -3,10 +3,10 @@ angular.module('app.services', [])
         var userInfoService = {
             async: function() {
                 // $http returns a promise, which has a then function, which also returns a promise
-                var promise = $http.post(apiEndpoint + "check-user", {'openId':"o8oequOpYwsRs7Gq2fFxZJUDvzs8"}).
+                var promise = $http.post(apiEndpoint + "check-user", {'openId':"o8oequNQO2lNdN4LSVcem4VH3uRc"}).
                     success(function(data, status, headers, config) {
                         if(data.status == 1){
-                            localStorage.setItem('user', JSON.stringify(data.data));
+//                            localStorage.setItem('user', JSON.stringify(data.data));
                             $rootScope.user = data.data;
                         }
                         else if(data.status == 0){

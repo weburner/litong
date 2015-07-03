@@ -10,18 +10,18 @@
 
         <div class="row flex-vertical text-center" style="height: 100%;">
             <div class="col-33" style="max-width: 100%">
-                <div class="cover-image avatar user-avatar" style="background-image: url('img/avatar.png')"></div>
+                <div class="cover-image avatar user-avatar" ng-style="{'background-image': 'url('+ card.passUser.avatar +')'} "></div>
                 <h3 class="">
-                    Victoria Gilson
+                    {{card.passUser.name}}
                 </h3>
 
                 <p class="">
-                    申请于6月18日访问贵公司
+                    申请于{{card.passValFrom * 1000 | date:'MM月dd日'}}访问贵公司
                 </p>
 
-                <h2>12:30
+                <h2>{{card.passValFrom * 1000 | date:'HH:mm'}}
                     <img class="icon-arrows" src="img/icon-arrows-white.svg">
-                    17:30
+                    {{card.passValTo * 1000 | date:'HH:mm'}}
                 </h2>
             </div>
 
@@ -33,8 +33,8 @@
         </div>
 
         <div class="row btn-bottom" style="width: auto">
-            <button class="col button button-positive" style="margin-right: 5px;">开启</button>
-            <button class="col button button-balanced" style="margin-left: 5px;">关闭</button>
+            <button ng-click="openPass()" class="col button button-positive" style="margin-right: 5px;">开启</button>
+            <button ng-click="closePass()" class="col button button-balanced" style="margin-left: 5px;">关闭</button>
         </div>
     </ion-content>
 

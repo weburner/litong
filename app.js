@@ -65,14 +65,16 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                     }
                 }
             })
+            .state('manageUser', {
+                url: '/manage-user/:id',
+                templateUrl: 'template/manage-user.html',
+                controller: 'ManageUserCtrl'
+            })
             .state('verifyingUser', {
                 url: '/verifying-user',
                 templateUrl: 'template/verifying-user.html'
             })
-            .state('manageUser', {
-                url: '/manage-user',
-                templateUrl: 'template/manage-user.html'
-            })
+
             .state('invitationUser', {
                 url: '/invitation-user',
                 templateUrl: 'template/invitation-user.html'

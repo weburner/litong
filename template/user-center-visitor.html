@@ -1,11 +1,12 @@
 <ion-content delegate-handle="tab-2-content" header-shrink-button-group scroll-event-interval="5" class="no-header" scrollbar-y="false">
     <div style="height: 270px;"></div>
     <ion-list>
-        <ion-item ng-repeat="pass in passList | filter:{ passStatus: 1 }" class="item-avatar item-icon-right border-bottom-half">
+        <ion-item ng-repeat="pass in passList | filter:{ passStatus:'!2'}" class="item-avatar item-icon-right border-bottom-half" ui-sref="manageUser({id:pass.passId})">
             <img ng-src="{{pass.passUser.avatar}}">
             <div class="item-title">{{pass.passUser.name}}</div>
-            <div class="item-sub-title">{{pass.passValFrom * 1000 | date:'MM/dd hh:mm'}}-{{pass.passValTo * 1000 | date:'hh:mm'}}</div>
-            <img src="img/icon-open.svg" class="icon" style="width: 20px; right:20px;"/>
+            <div class="item-sub-title">{{pass.passValFrom * 1000 | date:'MM/dd HH:mm'}}-{{pass.passValTo * 1000 | date:'HH:mm'}}</div>
+            <img ng-if="pass.passStatus == 1" src="img/icon-open.svg" class="icon" style="width: 20px; right:20px;"/>
+            <img ng-if="pass.passStatus == 0" src="img/icon-close.svg" class="icon" style="width: 20px; right:20px;"/>
         </ion-item>
     </ion-list>
 </ion-content>

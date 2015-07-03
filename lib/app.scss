@@ -394,7 +394,7 @@ $item-padding: 12px !default;
 }
 
 .qr-big {
-  width: 130px;
+  width: 95%;
   height: auto;
 }
 
@@ -411,6 +411,15 @@ $item-padding: 12px !default;
   bottom: 20px;
   width: auto;
   background-color: transparent;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .card-bottom {
@@ -514,7 +523,7 @@ $item-padding: 12px !default;
   width: 10px;
   height: 10px;
   top: 30px;
-//  left: -5px;
+  //  left: -5px;
 }
 
 .header-title {
@@ -535,7 +544,7 @@ $item-padding: 12px !default;
   color: #38454F;
 }
 
-.menu .list .item {
+.menu .list .item, .menu .list .item-content {
   background-color: transparent;
   border: none;
   color: white;
@@ -568,4 +577,11 @@ $item-padding: 12px !default;
 
 .tab-item:last-child {
   border-right: none;
+}
+.header-button{
+  opacity: .5;
+  //background-color: rebeccapurple;
+  width: 66px;
+  height: 66px;
+  position: absolute;
 }
