@@ -21,7 +21,7 @@ angular.module('app.controllers', [])
     })
     .controller('UserCenterCtrl', function (userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $location) {
 
-        $scope.showNoPending = function(){
+        $scope.showOnPending = function(){
 
         }
 
@@ -31,7 +31,7 @@ angular.module('app.controllers', [])
                 success(function(data, status, headers, config) {
                     if($rootScope.user.userRole == 2){
                         if(!data.data){
-                            $location.path('/user-center/landing');
+                            $location.path('/landing');
                             $scope.isLanding = true;
                         }
                         else{
@@ -39,7 +39,7 @@ angular.module('app.controllers', [])
                             $location.path('/user-center/visitor');
                         }
                     }
-                    else{
+                    else if($rootScope.user.userRole == 1){
                         if(!data.data){
                             $location.path('/user-center/landing');
                             $scope.isLanding = true;
@@ -73,7 +73,13 @@ angular.module('app.controllers', [])
             });
         }
     })
-    .controller('SignUpFormCtrl', function ($rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $timeout) {
+    .controller('SignUpFormCtrl', function ($location, userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $timeout) {
+
+        if(!$rootScope.user){
+            userInfoService.async().then(function(d) {
+                console.log('ok');
+            });
+        }
         var d = new Date();
         d.setHours(0,0,0,0); // last midnight
         $scope.currentDate = d;
@@ -155,8 +161,6 @@ angular.module('app.controllers', [])
                 "passCompany": $scope.signUpForm.passCompany.$modelValue, //被访公司的ID非公司名称
                 "passNumber": $scope.signUpForm.passNumber.$modelValue
             };
-
-
         }
 
         $scope.submitSignUpVisitor = function(){
@@ -183,7 +187,7 @@ angular.module('app.controllers', [])
                         else if(data.status == 1){
 
                             alert(data.statusMsg);
-                            $window.history.back();
+                            $location.path('/user-center/landing');
                         }
                     }).
                     error(function(data, status, headers, config) {
@@ -276,7 +280,7 @@ angular.module('app.controllers', [])
         }
 
     })
-    .controller('QrCardVisitorCtrl', function (userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+    .controller('QrCardVisitorCtrl', function ($timeout,userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
         var timer;
 
         var getQr = function(){
