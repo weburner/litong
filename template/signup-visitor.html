@@ -5,7 +5,7 @@
         </a>
 
         <div class="title">
-            <div class="row" style="height: 205px;">
+            <div class="row">
                 <div class="col">
                 </div>
                 <div class="col-100">
@@ -22,7 +22,7 @@
     </ion-header-bar>
 
     <ion-content header-shrink scroll-event-interval="5" padding="true" class="no-header" scrollbar-y="false">
-        <div style="height: 190px;"></div>
+        <div class="spacer-190"></div>
         <form name="signUpForm" novalidate ng-controller="SignUpFormCtrl">
             <ion-list>
                 <label class="item item-input border-bottom">
@@ -95,7 +95,7 @@
                 <div class="item item-input item-button-right border-bottom">
                     <span class="input-label">验证码</span>
                     <input name="mobileValidate" type="tel" ng-model="mobileValidate" placeholder="" ng-pattern="/\d{6}/" ng-maxlength=6 required>
-                    <button ng-disabled="!signUpForm.mobile.$valid || counter<60" ng-click="mobileCheck()" class="button button-small button-balanced" style="min-width: 80px;"><span ng-if="counter < 60"> {{counter}}秒后再试</span><span ng-if="counter == 60">获取验证码</span></button>
+                    <button ng-disabled="!signUpForm.mobile.$valid || counter<60" ng-click="mobileCheck()" class="button button-small button-balanced"><span ng-if="counter < 60"> {{counter}}秒后再试</span><span ng-if="counter == 60">获取验证码</span></button>
                 </div>
             </ion-list>
             <button ng-disabled="!signUpForm.$valid" ng-click="submitSignUpVisitor()" class="button button-light button-block btn-submit">提交申请</button>

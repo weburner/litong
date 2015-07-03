@@ -84,6 +84,7 @@ $item-padding: 12px !default;
 
 .button, .button-small {
   border-radius: 3px;
+  min-width: 80px;
 }
 
 .button-light {
@@ -164,6 +165,10 @@ $item-padding: 12px !default;
   height: 250px;
 }
 
+.spacer-190 {
+  height: 190px;
+}
+
 .spacer-150 {
   height: 150px;
 }
@@ -237,6 +242,18 @@ $item-padding: 12px !default;
   padding: 0;
 }
 
+.full-height {
+  height: 100%;
+}
+
+.full-max-width {
+  max-width: 100%;
+}
+
+.layer-top {
+  z-index: 99;
+}
+
 /* landing */
 #landing {
   color: #ffffff;
@@ -257,6 +274,10 @@ $item-padding: 12px !default;
 .title h4 {
   color: #ffffff;
   text-align: center;
+}
+
+.title .row:first-child {
+  height: 205px;
 }
 
 .input-label, .item-select select {
@@ -330,6 +351,18 @@ $item-padding: 12px !default;
   color: #e5e5e5;
   border-color: #e5e5e5;
   background-color: rgba(238, 238, 238, 0.6);
+}
+
+.row.btn-bottom-group {
+  width: auto;
+}
+
+.btn-bottom-group .button-positive {
+  margin-right: 5px;
+}
+
+.btn-bottom-group .button-balanced {
+  margin-left: 5px;
 }
 
 /* invitation-user */
