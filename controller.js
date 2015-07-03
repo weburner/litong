@@ -32,7 +32,7 @@ angular.module('app.controllers', [])
                     if($rootScope.user.userRole == 2){
                         if(!data.data){
                             $location.path('/landing');
-                            $scope.isLanding = true;
+//                            $scope.isLanding = true;
                         }
                         else{
                             $scope.passList = data.data;
@@ -42,7 +42,7 @@ angular.module('app.controllers', [])
                     else if($rootScope.user.userRole == 1){
                         if(!data.data){
                             $location.path('/user-center/landing');
-                            $scope.isLanding = true;
+//                            $scope.isLanding = true;
                         }
                         else{
                             $scope.passList = data.data;

@@ -5,7 +5,7 @@
     <ion-content scroll="false" id="qr-card-visitor" class="no-header cover-image" style="background-image: url('img/qr-card-bg.jpg')">
 
 
-        <div class="list card text-center qr-card">
+        <div class="list card text-center qr-card" style="top:40px;bottom:30px;">
             <div class="item no-border">
                 <div class="cover-image avatar user-avatar"
                      ng-style="{'background-image': 'url('+card.passUser.avatar+')'} "></div>
@@ -22,7 +22,7 @@
                 <div class="col col-center">
                     <div>
                         <img ng-if="card.passStatus == 2" class="qr-small" src="img/qr-icon-dark.svg">
-                        <img ng-if="card.passStatus == 1" class="qr-big" ng-src="{{card.passCode}}">
+                        <img ng-if="card.passStatus == 1" class="qr-big" ng-src="{{card.passCode}}" style="width: 80%;">
                     </div>
 
                     <div ng-if="card.passStatus == 1" class="item-des">二维码定时动态更新</div>
