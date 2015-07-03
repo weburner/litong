@@ -1,5 +1,5 @@
 <ion-view>
-    <a class="button button-clear layer-top" nav-direction="back" href="#/invitation-form">
+    <a class="button button-clear" nav-direction="back" ng-click="goBackHistory()">
         <img src="img/icon-arrow-back.svg" class="nav-icon">
     </a>
     <button class="button button-clear align-right layer-top">
@@ -20,9 +20,11 @@
 
             <div class="col-50 row row-center full-max-width">
                 <div class="col">
-                    <p>邀请成功创建于</p>
-
-                    <h2 class="invitation-time">13:00</h2>
+                    <h2>
+                        {{card.passValFrom * 1000 | date:"HH:mm"}}
+                        <img class="icon-arrows" src="img/icon-arrows.svg">
+                        {{card.passValTo * 1000 | date:"HH:mm"}}
+                    </h2>
 
                     <p>
                         点击右上角“…”，分享给小伙伴
@@ -35,7 +37,7 @@
         </div>
 
         <div class="btn-bottom">
-            <button class="button button-trans button-block">删除邀请函</button>
+            <button ng-click="deletePass()" class="button button-trans button-block">删除邀请函</button>
         </div>
     </ion-content>
 </ion-view>

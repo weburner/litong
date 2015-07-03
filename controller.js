@@ -154,13 +154,33 @@ angular.module('app.controllers', [])
             });
 
         $scope.submitInvitationForm = function(){
-            var formData = {   "userRole": 2,
-                "memberid": $rootScope.user.openId,  //被访者的openid
+            var formData = {
+                "openId": $rootScope.user.openId,  //被访者的openid
                 "passValFrom": new Date($scope.currentDate).getTime() / 1000 + $scope.slots[0].epochTime,
-                "passValTo": new Date($scope.currentDate).getTime() / 1000 + $scope.slots[1].epochTime,
-                "passCompany": $scope.signUpForm.passCompany.$modelValue, //被访公司的ID非公司名称
-                "passNumber": $scope.signUpForm.passNumber.$modelValue
+                "passValTo": new Date($scope.currentDate).getTime() / 1000 + $scope.slots[1].epochTime
             };
+
+            if($scope.invitationForm.$valid){
+                $http.post(apiEndpoint + "pass-create",
+                        formData
+                    ).
+                    success(function(data, status, headers, config) {
+                        if(data.status == 0){
+                            alert(data.statusMsg);
+                        }
+                        else if(data.status == 1){
+                            alert(data.statusMsg);
+                            var pass = data.data;
+                            console.log(pass.passId);
+                            $location.path('/invitation-user/' + pass.passId);
+                        }
+                    }).
+                    error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                        console.log(status);
+                    });
+            }
         }
 
         $scope.submitSignUpVisitor = function(){
@@ -460,5 +480,58 @@ angular.module('app.controllers', [])
                     console.log(status);
                 });
         }
+    })
+    .controller('InvitationUser', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+
+        if(!$rootScope.user){
+            userInfoService.async().then(function(d) {
+                console.log('ok');
+            });
+        }
+
+        var data = {"passId": $stateParams.id};
+
+        $http.post(apiEndpoint + "pass-code", data)
+            .success(function(data, status, headers, config) {
+                if(data.status == 0){
+                    alert(data.statusMsg);
+                    $location.path('/landing');
+                }
+                else
+                {
+                    console.log(data.data);
+                    $scope.card = data.data;
+                }
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log(status);
+            });
+
+        $scope.deletePass = function(){
+            var data = {
+                "openId": $rootScope.user.openId,
+                "passId": $stateParams.id
+            };
+
+            $http.post(apiEndpoint + "pass-delete", data)
+                .success(function(data, status, headers, config) {
+                    console.log(data);
+                    if(data.status == 0){
+                        alert(data.statusMsg);
+                    }
+                    else
+                    {
+                        alert(data.statusMsg);
+                    }
+                }).
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    console.log(status);
+                });
+        }
+
     })
 ;
