@@ -21,6 +21,7 @@ $dark:                            #444 !default;
 //$light:                          transparent !default;
 $positive: #47A0DB !default;
 $balanced: #88C057 !default;
+$royal:                           #9777A8 !default;
 
 $base-color: #546979 !default;
 $menu-bg: #38454F !default;
@@ -268,6 +269,9 @@ $item-padding: 12px !default;
 #landing .button-bar {
   bottom: 0;
   position: absolute;
+}
+#landing .button-bar .button{
+  border: none;
 }
 
 /* signup-user */

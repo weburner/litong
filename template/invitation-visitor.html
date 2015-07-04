@@ -1,0 +1,52 @@
+<ion-view>
+    <ion-header-bar class="header-shrink-bar-header positive-bg">
+        <a class="button button-clear" nav-direction="back" ng-click="goBackHistory()">
+            <img src="img/icon-arrow-back.svg" class="nav-icon">
+        </a>
+
+        <div class="title">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-100">
+                    <div class="spacer-30"></div>
+                    <div class="avatar avatar-bg cover-image row">
+                        <div class="cover-image user-avatar-large margin-center col-center" ng-style="{'background-image': 'url('+card.passSender.avatar+')'} "></div>
+                    </div>
+                    <h4>{{card.passSender.name}} 邀请你</h4>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+    </ion-header-bar>
+
+    <ion-content header-shrink scroll-event-interval="5" padding="true" class="no-header" scrollbar-y="false">
+        <div class="spacer-190"></div>
+        <form name="signUpForm" novalidate ng-controller="SignUpFormCtrl">
+            <ion-list>
+                <label class="item item-input border-bottom">
+                    <span class="input-label">姓名</span>
+                    <input name="username" ng-model="username" type="text" placeholder="">
+                    <input name="openId" ng-model="user.openId" type="hidden">
+                </label>
+                <label class="item item-input border-bottom">
+                    <span class="input-label">到访人数</span>
+                    <input name="passNumber" type="tel" ng-model="passNumber" placeholder="" required>
+                </label>
+                <label class="item item-input border-bottom">
+                    <span class="input-label">手机号码</span>
+                    <input name="mobile" type="tel" ng-model="mobileNum" placeholder="" ng-pattern="/\d{11}/" ng-maxlength=11 required>
+                </label>
+                <div class="item item-input item-button-right border-bottom">
+                    <span class="input-label">验证码</span>
+                    <input name="mobileValidate" type="tel" ng-model="mobileValidate" placeholder="" ng-pattern="/\d{6}/" ng-maxlength=6 required>
+                    <button ng-disabled="!signUpForm.mobile.$valid || counter<60" ng-click="mobileCheck()" class="button button-small button-balanced"><span ng-if="counter < 60"> {{counter}}秒后再试</span><span ng-if="counter == 60">获取验证码</span></button>
+                </div>
+            </ion-list>
+            <button ng-disabled="!signUpForm.$valid" ng-click="submitVisitorInvitation()" class="button button-light button-block btn-submit">提交申请</button>
+        </form>
+
+        <div class="form-brand text-center">叩叩智能楼宇系统™</div>
+    </ion-content>
+</ion-view>

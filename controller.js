@@ -1,5 +1,13 @@
 angular.module('app.controllers', [])
     .controller('AppCtrl', function ($rootScope,$scope, $window, apiEndpoint, $http,$location) {
+        window.shareData = {
+            "link": "http://weixin.leatop.com/leatop/wechat_b/",
+            "img": "http://weixin.leatop.com/leatop/wechat_b/img/share-wx.png",
+            "title": "叩叩",
+            "content": "",
+            "pageUrl": "http://weixin.leatop.com/leatop/wechat_b/"
+        };
+
         $scope.goBackHistory = function(){
             $window.history.back();
         };
@@ -73,13 +81,13 @@ angular.module('app.controllers', [])
             });
         }
     })
-    .controller('SignUpFormCtrl', function ($location, userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $timeout) {
-
+    .controller('SignUpFormCtrl', function ($location, userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $timeout, $stateParams) {
         if(!$rootScope.user){
             userInfoService.async().then(function(d) {
                 console.log('ok');
             });
         }
+
         var d = new Date();
         d.setHours(0,0,0,0); // last midnight
         $scope.currentDate = d;
@@ -152,6 +160,37 @@ angular.module('app.controllers', [])
                 // or server returns response with an error status.
                 console.log(status);
             });
+
+        $scope.submitVisitorInvitation = function(){
+            var formData = {
+                "openId": $rootScope.user.openId,  //来访者的openid
+                "username": $scope.signUpForm.username.$modelValue, //来访者的全名
+                "passNumber": $scope.signUpForm.passNumber.$modelValue,
+                "mobile": $scope.signUpForm.mobile.$modelValue,
+                "mobileValidate": $scope.signUpForm.mobile.$modelValue,
+            };
+
+            if($scope.signUpForm.$valid){
+                $http.post(apiEndpoint + "sign-up",
+                        formData
+                    ).
+                    success(function(data, status, headers, config) {
+                        if(data.status == 0){
+                            alert(data.statusMsg);
+                        }
+                        else if(data.status == 1){
+
+                            alert(data.statusMsg);
+                            $location.path('/user-center/landing');
+                        }
+                    }).
+                    error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                        console.log(status);
+                    });
+            }
+        }
 
         $scope.submitInvitationForm = function(){
             var formData = {
@@ -481,7 +520,7 @@ angular.module('app.controllers', [])
                 });
         }
     })
-    .controller('InvitationUser', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+    .controller('InvitationUser', function ($timeout, userInfoService, $rootScope,$scope, $location, apiEndpoint, $http,$stateParams) {
 
         if(!$rootScope.user){
             userInfoService.async().then(function(d) {
@@ -501,6 +540,14 @@ angular.module('app.controllers', [])
                 {
                     console.log(data.data);
                     $scope.card = data.data;
+
+                    window.shareData = {
+                        "link": "http://weixin.leatop.com/leatop/wechat_b/#/invitation-visitor-reply/" + $stateParams.id,
+                        "img": "http://weixin.leatop.com/leatop/wechat_b/img/share-wx.png",
+                        "title": "叩叩",
+                        "content": "",
+                        "pageUrl": "http://weixin.leatop.com/leatop/wechat_b/"
+                    };
                 }
             }).
             error(function(data, status, headers, config) {
@@ -524,6 +571,7 @@ angular.module('app.controllers', [])
                     else
                     {
                         alert(data.statusMsg);
+                        $location.path('/user-center/tabs/ongoing');
                     }
                 }).
                 error(function(data, status, headers, config) {
@@ -533,5 +581,26 @@ angular.module('app.controllers', [])
                 });
         }
 
+    })
+    .controller('ReplyInvitationCtrl', function($scope, $stateParams, apiEndpoint, $http){
+        var data = {"passId": $stateParams.id};
+
+        $http.post(apiEndpoint + "pass-code", data)
+            .success(function(data, status, headers, config) {
+                if(data.status == 0){
+                    alert(data.statusMsg);
+                    $location.path('/landing');
+                }
+                else
+                {
+                    console.log(data.data);
+                    $scope.card = data.data;
+                }
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log(status);
+            });
     })
 ;

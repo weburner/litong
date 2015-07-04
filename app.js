@@ -10,9 +10,10 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                 url: '/signup-visitor',
                 templateUrl: 'template/signup-visitor.html'
             })
-            .state('signupVisitorWithData', {
-                url: '/signup-visitor/:id',
-                templateUrl: 'template/signup-visitor.html'
+            .state('InvitationVisitorReply', {
+                url: '/invitation-visitor-reply/:id',
+                templateUrl: 'template/invitation-visitor.html',
+                controller: 'ReplyInvitationCtrl'
             })
             .state('signupUser', {
                 url: '/signup-user',
