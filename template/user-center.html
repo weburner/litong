@@ -3,31 +3,42 @@
         <ion-content padding="true" scroll="true">
             <img class="logo-menu" src="img/logo-menu.svg"/>
             <ion-list>
-                <ion-item class="item" menu-toggle="left">
-                    <img src="img/menu-icon-qr.svg" class="menu-image-icon"/>
+                <ion-item class="item" ui-sref="{{(user.userRole == 1) ? 'qrCardVisitor({id:firstPass.passId})' : 'qrCardVisitor({id:firstPass.passId})'}}" nav-direction="forward" menu-toggle="left">
+                    <img  src="img/menu-icon-qr.svg" class="menu-image-icon"/>
                     门禁卡
                     <!--<span class="badge badge-positive" style="left: 90px;right: auto;">2</span>-->
                 </ion-item>
-                <ion-item class="item" href="http://weixin.leatop.com/leatop/top/mycoupon.php">
+                <ion-item class="item" href="#/invitation-visitor" nav-direction="forward" menu-toggle="left">
+                    <img src="img/menu-icon-bag.svg" class="menu-image-icon"/>
+                    邀请访客</ion-item>
+                <ion-item class="item" href="http://weixin.leatop.com/leatop/shop/mycoupon.php">
                     <img src="img/menu-icon-sale.svg" class="menu-image-icon"/>
-                    优惠券</ion-item>
-                <ion-item class="item" href="http://lab.toyak.com/leatop/app_dinner/mobile/products.php">
+                    我的优惠券</ion-item>
+                <ion-item class="item" href="weixin.leatop.com/leatop/shop/restaurant.php">
                     <img src="img/menu-icon-food.svg" class="menu-image-icon"/>
-                    周边美食</ion-item>
+                    线上点餐</ion-item>
+                <ion-item class="item" href="http://weixin.leatop.com/leatop/shop/index.php">
+                    <img src="img/menu-icon-dash.svg" class="menu-image-icon"/>
+                    福利联盟</ion-item>
                 <ion-item class="item" href="http://leatop.dejian-tech.com/index.php/Home/Parking/index.html">
                     <img src="img/menu-icon-location.svg" class="menu-image-icon"/>
                     停车位查询</ion-item>
                 <ion-item class="item" href="http://leatop.dejian-tech.com/index.php/Home/Company/index.html">
                     <img src="img/menu-icon-bag.svg" class="menu-image-icon"/>
                     大楼水牌</ion-item>
-                <ion-item class="item" href="http://weixin.leatop.com/leatop/shop/index.php">
+
+                <ion-item class="item" href="http://leatop.dejian-tech.com/index.php/Home/About/index?id=17">
                     <img src="img/menu-icon-dash.svg" class="menu-image-icon"/>
-                    福利联盟</ion-item>
+                    穿梭巴士</ion-item>
+                <ion-item class="item" href="http://weixin.leatop.com/leatop/html/san.html">
+                    <img src="img/menu-icon-location.svg" class="menu-image-icon"/>
+                    借伞服务</ion-item>
             </ion-list>
 
-            <!--<div style="height: 30px;"></div>-->
+            <div style="height: 70px;"></div>
+            <div class="brand text-center">叩叩智慧楼宇系统™</div>
         </ion-content>
-        <div class="brand text-center">叩叩智慧楼宇系统™</div>
+
     </ion-side-menu>
     <ion-pane ion-side-menu-content="">
         <ion-header-bar class="user-center-header" ng-if="user" style="background-color: #47a0db;">
@@ -35,30 +46,23 @@
                 <img src="img/menu-icon.svg" class="nav-icon">
             </button>
             <div class="title" style="height: 100%;">
-                <h4 class="header-title">{{user.name}}</h4>
+                <h4 class="header-title">{{user.name}} <span ng-if="user.userRole == 2">的访问记录</span></h4>
                 <div class="row row-center user-center-header-row" style="height: 205px;padding-bottom: 30px;">
                     <div class="col" style="position: relative;">
-                        <a ng-if="isLanding" href="http://weixin.leatop.com/leatop/top/mycoupon.php"><div class="header-button" style="top: -90px; right: 10px;"></div></a>
-                        <a ui-sref="qrCardUser" ng-if="user.userRole == 1" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
-                        <a ui-sref="landing" ng-if="user.userRole == 2" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
 
-                        <a ng-if="isLanding" href="http://lab.toyak.com/leatop/app_dinner/mobile/products.php"><div class="header-button" style="bottom: -115px; right: 10px;"></div></a>
+                        <a ui-sref="qrCardUser" ng-if="user.userRole == 1 && !isLanding" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
+                        <a  ui-sref="qrCardVisitor({id:firstPass.passId})" ng-if="user.userRole == 2" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
                     </div>
                     <div class="col-100" style="position: relative;">
-                        <a ng-if="isLanding" href="http://leatop.dejian-tech.com/index.php/Home/Parking/index.html"><div class="header-button" style="top: -90px; right: 30px;"></div></a>
                         <div class="avatar avatar-bg cover-image">
                             <div class="cover-image user-avatar-large margin-center" ng-style="{'background-image': 'url('+user.avatar+')'} "></div>
                         </div>
-
-                        <a ng-if="isLanding" href="http://leatop.dejian-tech.com/index.php/Home/Company/index.html"><div class="header-button" style="bottom: -115px; right: 30px;"></div></a>
                     </div>
                     <div class="col" style="position: relative;">
-                        <a ng-if="isLanding" href="http://weixin.leatop.com/leatop/shop/index.php"><div class="header-button" style="top: -90px; left: 10px;"></div></a>
-                        <a nav-direction="forward" ng-if="user.userRole == 1" ui-sref="invitationVisitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
+                        <a nav-direction="forward" ng-if="user.userRole == 1 && !isLanding" ui-sref="invitationVisitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
                         </a>
                         <a nav-direction="forward" ng-if="user.userRole == 2" ui-sref="signupVisitor" style="background-image: url(img/plus-icon.svg);background-size: 12px 12px;"  class="round-button margin-center cover-image" >
                         </a>
-                        <a ng-if="isLanding" href="http://weixin.leatop.com/leatop/shop/index.php"><div class="header-button" style="bottom: -115px; left: 10px;"></div></a>
                     </div>
                 </div>
             </div>

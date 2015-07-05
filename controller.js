@@ -6,58 +6,36 @@ angular.module('app.controllers', [])
             "title": "叩叩智慧楼宇系统",
             "content": "欢迎体验全新的楼宇办公体验"
         };
-
+        $scope.go = function ( path ) {
+            $location.path( path );
+        };
         $scope.goBackHistory = function(){
             $window.history.back();
         };
-//        var lastclear = localStorage.getItem('lastclear'),
-//            time_now  = (new Date()).getTime();
-//        // .getTime() returns milliseconds so 1000 * 60 * 60 * 24 = 24 days
-//        if ((time_now - lastclear) > 1000 * 60 * 60 * 24) {
-//            localStorage.clear();
-//            localStorage.setItem('lastclear', time_now);
-//        }
-//
-//        if (!$rootScope.user && localStorage.getItem('user')){
-//            $rootScope.user = JSON.parse(localStorage.getItem('user'));
-//        }
-//        else
         if(window && window.weixinData && !window.weixinData.nickname){
             $location.path('/follow-visitor');
         }
     })
-    .controller('UserCenterCtrl', function (userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http, $location) {
-
-        $scope.showOnPending = function(){
-
+    .controller('LandingCtrl', function(userInfoService, $rootScope, $scope){
+        if(!$rootScope.user){
+            userInfoService.async().then(function(d) {
+                console.log($rootScope.user);
+                if($rootScope.user.userRole == 1){
+                    $scope.userLink = "#/user-center/landing-in";
+                }
+                else{
+                    $scope.userLink = "#/user-center/visitor";
+                }
+            });
         }
-
-        $scope.isLanding = false;
+    })
+    .controller('UserCenterTabsCtrl', function(userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http){
+        $rootScope.isLanding = false;
         var getPassList = function(){
             $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
                 success(function(data, status, headers, config) {
-                    if($rootScope.user.userRole == 2){
-                        if(!data.data){
-                            $location.path('/landing');
-//                            $scope.isLanding = true;
-                        }
-                        else{
-                            $scope.passList = data.data;
-                            $location.path('/user-center/visitor');
-                        }
-                    }
-                    else if($rootScope.user.userRole == 1){
-                        if(!data.data){
-                            $location.path('/user-center/landing');
-//                            $scope.isLanding = true;
-                        }
-                        else{
-                            $scope.passList = data.data;
-                            $location.path('/user-center/tabs/ongoing');
-                        }
-                    }
+                    $scope.passList = data.data;
 
-                    console.log($scope.passList);
                 }).
                 error(function(data, status, headers, config) {
                     console.log(status);
@@ -69,6 +47,59 @@ angular.module('app.controllers', [])
                     $ionicScrollDelegate.$getByHandle('tab-2-content').scrollTop(true);
                 }
             }, 100);
+        }
+
+        $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams){
+                if(fromState.name == 'manageUser' && toState.name == 'userCenter.tabs.visitor'){
+                    if($rootScope.user){
+                        getPassList();
+                    }
+                    else{
+                        userInfoService.async().then(function(d) {
+                            getPassList();
+                        });
+                    }
+                }
+            }
+        );
+
+        if($rootScope.user){
+            getPassList();
+        }
+        else{
+            userInfoService.async().then(function(d) {
+                getPassList();
+            });
+        }
+    })
+    .controller('UserCenterCtrl', function (userInfoService, $rootScope, $scope, $ionicScrollDelegate, apiEndpoint, $http) {
+
+        $rootScope.isLanding = true;
+        $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams){
+                if(toState.name == 'userCenter.landing-in'){
+                    $rootScope.isLanding = true;
+                }
+                else{
+                    setTimeout(function(){
+                        $rootScope.isLanding = false;
+                    }, 200);
+                }
+            }
+        );
+
+        var getPassList = function(){
+            $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
+                success(function(data, status, headers, config) {
+                    if($rootScope.user.userRole == 2){
+                        $scope.passList = data.data;
+                        $scope.firstPass = data.data[0];
+                    }
+                }).
+                error(function(data, status, headers, config) {
+                    console.log(status);
+                });
         }
 
         if($rootScope.user){
@@ -86,7 +117,6 @@ angular.module('app.controllers', [])
                 console.log('ok');
             });
         }
-
         var d = new Date();
         d.setHours(0,0,0,0); // last midnight
         $scope.currentDate = d;
@@ -252,7 +282,8 @@ angular.module('app.controllers', [])
                         formData
                     ).
                     success(function(data, status, headers, config) {
-                        if(data.status == 0){
+                        console.log(data);
+                        if(data.status != 1){
                             alert(data.statusMsg);
                         }
                         else if(data.status == 1){
@@ -274,8 +305,7 @@ angular.module('app.controllers', [])
                 "mobile": $scope.signUpForm.mobile.$modelValue,
                 "mobileValidate": $scope.signUpForm.mobileValidate.$modelValue,
                 "username": $scope.signUpForm.username.$modelValue,
-                "passCompany": $scope.signUpForm.passCompany.$modelValue,
-                "cardId": $scope.signUpForm.cardId.$modelValue
+                "passCompany": $scope.signUpForm.passCompany.$modelValue
             };
             console.log(formData);
 
@@ -284,13 +314,14 @@ angular.module('app.controllers', [])
                         formData
                     ).
                     success(function(data, status, headers, config) {
-                        if(data.status == 0){
+                        if(data.status != 1){
                             alert(data.statusMsg);
                         }
                         else if(data.status == 1){
                             alert(data.statusMsg);
                             $location.path('/user-center/landing');
                         }
+                        console.log(data);
 
                     }).
                     error(function(data, status, headers, config) {
@@ -324,6 +355,7 @@ angular.module('app.controllers', [])
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
                     // when the response is available
+
                     $scope.people = data.data;
 
                     $scope.getTestItems = function (query) {
@@ -349,10 +381,6 @@ angular.module('app.controllers', [])
                     console.log(status);
                 });
         }
-
-    })
-    .controller('UserCenterOngoingCtrl', function($scope){
-console.log('hi');
 
     })
     .controller('QrCardVisitorCtrl', function ($timeout,userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
@@ -406,7 +434,7 @@ console.log('hi');
             }
         );
     })
-    .controller('QrCardUserCtrl', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+    .controller('QrCardUserCtrl', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http) {
 
         var timer;
 
@@ -457,15 +485,6 @@ console.log('hi');
         );
     })
     .controller('ManageUserCtrl', function ($state, $timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
-
-        $scope.backList = function(){
-            console.log($scope.passList);
-            $state.go('userCenter.tabs.visitor');
-            setTimeout(function(){
-                location.reload();
-            }, 100);
-
-        }
         var getPass = function(){
             var data = {"passId": $stateParams.id};
 
@@ -487,17 +506,6 @@ console.log('hi');
                     console.log(status);
                 });
         }
-
-//        $scope.checkVisitorPass = function(status) {
-//            if(status == 2){
-//                $state.go('qrCardVisitor({id:$stateParams.id})')
-//
-//            }
-//            else{
-//                $state.go('verifyingVisitor')
-//            }
-//
-//        }
 
         if($rootScope.user){
             getPass();
@@ -523,6 +531,7 @@ console.log('hi');
                     else
                     {
                         alert(data.statusMsg);
+                        $state.go('userCenter.tabs.visitor');
                     }
                 }).
                 error(function(data, status, headers, config) {
@@ -547,6 +556,7 @@ console.log('hi');
                     else
                     {
                         alert(data.statusMsg);
+                        $state.go('userCenter.tabs.visitor');
                     }
                 }).
                 error(function(data, status, headers, config) {
@@ -651,6 +661,35 @@ console.log('hi');
                 // or server returns response with an error status.
                 console.log(status);
             });
+    })
+    .controller('InvitationVisitorCtrl', function($scope, $rootScope){
+        $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams){
 
+                if($rootScope.ionicDatepicker && $rootScope.ionicDatepicker.close){
+                    $rootScope.ionicDatepicker.close();
+                }
+                if($rootScope.ionicTimepicker && $rootScope.ionicTimepicker.close){
+                    $rootScope.ionicTimepicker.close();
+                }
+                if($rootScope.ionicTimepicker2 && $rootScope.ionicTimepicker2.close){
+                    $rootScope.ionicTimepicker2.close();
+                }
+            });
+    })
+    .controller('SignupVisitorCtrl', function($scope, $rootScope){
+        $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams){
+
+                if($rootScope.ionicDatepicker && $rootScope.ionicDatepicker.close){
+                    $rootScope.ionicDatepicker.close();
+                }
+                if($rootScope.ionicTimepicker && $rootScope.ionicTimepicker.close){
+                    $rootScope.ionicTimepicker.close();
+                }
+                if($rootScope.ionicTimepicker2 && $rootScope.ionicTimepicker2.close){
+                    $rootScope.ionicTimepicker2.close();
+                }
+            });
     })
 ;

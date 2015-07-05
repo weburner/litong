@@ -342,6 +342,9 @@ $item-padding: 12px !default;
   border: 1px solid #ffffff;
   color: #ffffff;
 }
+.btn-call:before{
+  line-height: 60px !important;
+}
 
 .button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before {
   font-size: 36px;
@@ -621,4 +624,15 @@ $item-padding: 12px !default;
   width: 66px;
   height: 66px;
   position: absolute;
+}
+.user-landing{
+  background-color: $positive;
+  color: white;
+}
+.user-landing img{
+  width:80px;
+  height: auto;
+}
+.bar-header{
+  border: none;
 }

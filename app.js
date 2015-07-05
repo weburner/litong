@@ -4,11 +4,13 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
         $stateProvider
             .state('landing', {
                 url: '/landing',
-                templateUrl: 'template/landing.html'
+                templateUrl: 'template/landing.html',
+                controller: 'LandingCtrl'
             })
             .state('signupVisitor', {
                 url: '/signup-visitor',
-                templateUrl: 'template/signup-visitor.html'
+                templateUrl: 'template/signup-visitor.html',
+                controller: 'SignupVisitorCtrl'
             })
             .state('InvitationVisitorReply', {
                 url: '/invitation-visitor-reply/:id',
@@ -25,6 +27,14 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                 abstract : true,
                 controller: 'UserCenterCtrl'
             })
+            .state('userCenter.landing-in', {
+                url: "/landing-in",
+                views: {
+                    'user-center': {
+                        templateUrl: "template/user-center-landing-in.html"
+                    }
+                }
+            })
             .state('userCenter.landing', {
                 url: "/landing",
                 views: {
@@ -35,14 +45,16 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
             .state('invitationVisitor', {
                 url: '/invitation-visitor',
-                templateUrl: 'template/invitation-form.html'
+                templateUrl: 'template/invitation-form.html',
+                controller: 'InvitationVisitorCtrl'
             })
             .state('userCenter.tabs', {
                 url: '/tabs',
                 abstract : true,
                 views: {
                     'user-center': {
-                        templateUrl: 'template/user-center-tabs.html'
+                        templateUrl: 'template/user-center-tabs.html',
+                        controller: 'UserCenterTabsCtrl'
                     }
                 }
             })
@@ -50,8 +62,7 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                 url: "/ongoing",
                 views: {
                     'ongoing-tab': {
-                        templateUrl: "template/user-center-ongoing.html",
-                        controller:"UserCenterOngoingCtrl"
+                        templateUrl: "template/user-center-ongoing.html"
                     }
                 }
             })
@@ -80,7 +91,6 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                 url: '/verifying-user',
                 templateUrl: 'template/verifying-user.html'
             })
-
             .state('invitationUser', {
                 url: '/invitation-user/:id',
                 templateUrl: 'template/invitation-user.html',
@@ -106,7 +116,7 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
             })
         ;
 
-        $urlRouterProvider.otherwise('/user-center/landing');
+        $urlRouterProvider.otherwise('/landing');
     })
     .directive('headerShrink', function ($document) {
         var fadeAmt;

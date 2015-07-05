@@ -9,14 +9,14 @@
         </div>
     </ion-content>
         <div class="button-bar">
-            <button ui-sref="userCenter.landing" nav-direction="forward" class="button button-large button-royal button-block ">
+            <a href="{{userLink}}" nav-direction="forward" class="button button-large button-royal button-block " style="  padding-top: 3px;">
                 进入个人中心
-            </button>
+            </a>
             <button ui-sref="signupUser" nav-direction="forward" class="button button-large button-balanced button-block ">
-                申请成为员工
+                楼宇会员申请
             </button>
             <button ui-sref="signupVisitor" nav-direction="forward" class="button button-large button-positive button-block ">
-                申请成为访客
+                发起访客申请
             </button>
         </div>
 </ion-view>

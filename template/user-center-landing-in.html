@@ -1,0 +1,42 @@
+<ion-view cache-view="false">
+    <ion-content scroll="false" class="user-landing">
+        <div style="height: 200px;"></div>
+        <div class="row text-center">
+            <div class="col col-10"></div>
+            <div class="col">
+                <img ui-sref="qrCardUser" nav-direction="forward" src="img/landing-button-01.svg" />
+            </div>
+            <div class="col">
+                <img ui-sref="invitationVisitor" nav-direction="forward" src="img/landing-button-02.svg" />
+            </div>
+            <div class="col col-10"></div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div class="row text-center">
+            <div class="col col-10"></div>
+            <div class="col">
+                <img ui-sref="userCenter.tabs.ongoing" nav-direction="forward" src="img/landing-button-03.svg" />
+            </div>
+            <div class="col">
+                <img ui-sref="qrCardUser" nav-direction="forward" src="img/landing-button-04.svg" />
+            </div>
+            <div class="col col-10"></div>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" style="padding: 0;">
+        <div class="button-bar">
+            <button class="button">
+                <div class="item-des" style="line-height: 12px; margin-top: 10px;">访问总天数</div>
+                <div style="font-size: 24px;">{{user.statistics.total}}</div>
+            </button>
+            <button class="button">
+                <div class="item-des" style="line-height: 12px; margin-top: 10px;">本月</div>
+                <div style="font-size: 24px;">{{user.statistics.month}}</div>
+            </button>
+            <button class="button">
+                <div class="item-des" style="line-height: 12px; margin-top: 10px;">本周</div>
+                <div style="font-size: 24px;">{{user.statistics.week}}</div>
+            </button>
+        </div>
+    </ion-footer-bar>
+</ion-view>
