@@ -50,7 +50,8 @@ angular.module('app', ['ionic','app.controllers','app.services','ion-autocomplet
                 url: "/ongoing",
                 views: {
                     'ongoing-tab': {
-                        templateUrl: "template/user-center-ongoing.html"
+                        templateUrl: "template/user-center-ongoing.html",
+                        controller:"UserCenterOngoingCtrl"
                     }
                 }
             })

@@ -3,9 +3,8 @@ angular.module('app.controllers', [])
         window.shareData = {
             "link": "http://weixin.leatop.com/leatop/wechat_b/",
             "img": "http://weixin.leatop.com/leatop/wechat_b/img/share-wx.png",
-            "title": "叩叩",
-            "content": "",
-            "pageUrl": "http://weixin.leatop.com/leatop/wechat_b/"
+            "title": "叩叩智慧楼宇系统",
+            "content": "欢迎体验全新的楼宇办公体验"
         };
 
         $scope.goBackHistory = function(){
@@ -163,26 +162,39 @@ angular.module('app.controllers', [])
 
         $scope.submitVisitorInvitation = function(){
             var formData = {
+                "userRole": 2,
                 "openId": $rootScope.user.openId,  //来访者的openid
+                "passId": $stateParams.id,
                 "username": $scope.signUpForm.username.$modelValue, //来访者的全名
                 "passNumber": $scope.signUpForm.passNumber.$modelValue,
                 "mobile": $scope.signUpForm.mobile.$modelValue,
-                "mobileValidate": $scope.signUpForm.mobile.$modelValue,
+                "mobileValidate": $scope.signUpForm.mobileValidate.$modelValue,
+                "passValFrom":$scope.card.passValFrom,
+                "passValTo":$scope.card.passValTo
             };
+            console.log(formData);
 
             if($scope.signUpForm.$valid){
                 $http.post(apiEndpoint + "sign-up",
                         formData
                     ).
                     success(function(data, status, headers, config) {
-                        if(data.status == 0){
+                        console.log(data);
+                        if(data.status != 1){
+                            console.log(">> no 1");
+                            console.log(data);
                             alert(data.statusMsg);
                         }
                         else if(data.status == 1){
-
+                            console.log(">> 1");
+                            console.log(data);
                             alert(data.statusMsg);
                             $location.path('/user-center/landing');
                         }
+                        $location.path('/user-center/visitor');
+                        setTimeout(function(){
+                            location.reload();
+                        }, 100);
                     }).
                     error(function(data, status, headers, config) {
                         // called asynchronously if an error occurs
@@ -339,6 +351,10 @@ angular.module('app.controllers', [])
         }
 
     })
+    .controller('UserCenterOngoingCtrl', function($scope){
+console.log('hi');
+
+    })
     .controller('QrCardVisitorCtrl', function ($timeout,userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
         var timer;
 
@@ -440,7 +456,16 @@ angular.module('app.controllers', [])
             }
         );
     })
-    .controller('ManageUserCtrl', function ($timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+    .controller('ManageUserCtrl', function ($state, $timeout, userInfoService, $rootScope,$scope, $window, apiEndpoint, $http,$stateParams) {
+
+        $scope.backList = function(){
+            console.log($scope.passList);
+            $state.go('userCenter.tabs.visitor');
+            setTimeout(function(){
+                location.reload();
+            }, 100);
+
+        }
         var getPass = function(){
             var data = {"passId": $stateParams.id};
 
@@ -462,6 +487,17 @@ angular.module('app.controllers', [])
                     console.log(status);
                 });
         }
+
+//        $scope.checkVisitorPass = function(status) {
+//            if(status == 2){
+//                $state.go('qrCardVisitor({id:$stateParams.id})')
+//
+//            }
+//            else{
+//                $state.go('verifyingVisitor')
+//            }
+//
+//        }
 
         if($rootScope.user){
             getPass();
@@ -541,13 +577,26 @@ angular.module('app.controllers', [])
                     console.log(data.data);
                     $scope.card = data.data;
 
-                    window.shareData = {
-                        "link": "http://weixin.leatop.com/leatop/wechat_b/#/invitation-visitor-reply/" + $stateParams.id,
-                        "img": "http://weixin.leatop.com/leatop/wechat_b/img/share-wx.png",
-                        "title": "叩叩",
-                        "content": "",
-                        "pageUrl": "http://weixin.leatop.com/leatop/wechat_b/"
-                    };
+
+                    if(typeof wx != 'undefined'){
+                        wx.checkJsApi({
+                            jsApiList: [
+                                'onMenuShareAppMessage'
+                            ],
+                            success: function (res) {
+                                // alert(JSON.stringify(res));
+                            }
+                        });
+                        wx.showAllNonBaseMenuItem();
+
+                        wx.onMenuShareAppMessage({
+                            title: $scope.card.passSender.name + "邀请你访问",
+                            desc: $scope.card.passSender.name + "为您创建了访问请求，请点击填写资料获取您的门禁凭证",
+                            link: "http://weixin.leatop.com/leatop/wechat_b/#/invitation-visitor-reply/" + $stateParams.id,
+                            imgUrl: "http://weixin.leatop.com/leatop/wechat_b/img/share-wx.png"
+                        });
+                    }
+
                 }
             }).
             error(function(data, status, headers, config) {
@@ -602,5 +651,6 @@ angular.module('app.controllers', [])
                 // or server returns response with an error status.
                 console.log(status);
             });
+
     })
 ;

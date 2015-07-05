@@ -9244,8 +9244,8 @@ a.button {
   content: "";
   position: absolute;
   top: 35px;
+  bottom: 35px;
   left: 21px;
-  height: 100%;
   width: 1px;
   border-left: 1px solid #D8D8D8;
   z-index: 2; }
