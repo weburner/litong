@@ -275,7 +275,7 @@ $item-padding: 12px !default;
 }
 
 /* signup-user */
-.title h4 {
+.title h4, .title h5 {
   color: #ffffff;
   text-align: center;
 }
@@ -635,4 +635,5 @@ $item-padding: 12px !default;
 }
 .bar-header{
   border: none;
+  background-image: none !important;
 }

@@ -1,6 +1,15 @@
+
 <ion-view cache-view="false">
+    <style>
+        .user-center-header{
+            height: 195px;
+        }
+        h4.header-title {
+            bottom:0;
+        }
+    </style>
     <ion-content scroll="false" class="user-landing">
-        <div style="height: 200px;"></div>
+        <div style="height: 190px;"></div>
         <div class="row text-center">
             <div class="col col-10"></div>
             <div class="col">
@@ -18,7 +27,9 @@
                 <img ui-sref="userCenter.tabs.ongoing" nav-direction="forward" src="img/landing-button-03.svg" />
             </div>
             <div class="col">
-                <img ui-sref="qrCardUser" nav-direction="forward" src="img/landing-button-04.svg" />
+                <a nav-direction="forward" href="http://weixin.leatop.com/leatop/shop/mycoupon.php">
+                    <img src="img/landing-button-04.svg" />
+                </a>
             </div>
             <div class="col col-10"></div>
         </div>

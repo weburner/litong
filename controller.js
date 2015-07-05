@@ -12,14 +12,14 @@ angular.module('app.controllers', [])
         $scope.goBackHistory = function(){
             $window.history.back();
         };
-        if(window && window.weixinData && !window.weixinData.nickname){
-            $location.path('/follow-visitor');
-        }
+//        if(!window || !window.weixinData || !window.weixinData.nickname){
+//            $location.path('/follow-visitor');
+//        }
     })
     .controller('LandingCtrl', function(userInfoService, $rootScope, $scope){
         if(!$rootScope.user){
             userInfoService.async().then(function(d) {
-                console.log($rootScope.user);
+//                console.log($rootScope.user);
                 if($rootScope.user.userRole == 1){
                     $scope.userLink = "#/user-center/landing-in";
                 }

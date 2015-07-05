@@ -9039,7 +9039,7 @@ a.button {
   border: none; }
 
 /* signup-user */
-.title h4 {
+.title h4, .title h5 {
   color: #ffffff;
   text-align: center; }
 
@@ -9333,4 +9333,5 @@ a.button {
   height: auto; }
 
 .bar-header {
-  border: none; }
+  border: none;
+  background-image: none !important; }
