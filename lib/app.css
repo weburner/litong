@@ -9335,3 +9335,11 @@ a.button {
 .bar-header {
   border: none;
   background-image: none !important; }
+
+.no-apply img {
+  width: 80px;
+  height: auto; }
+
+.no-apply .no-apply-des {
+  font-size: 12px;
+  color: #A6AFB6; }

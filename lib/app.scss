@@ -21,7 +21,7 @@ $dark:                            #444 !default;
 //$light:                          transparent !default;
 $positive: #47A0DB !default;
 $balanced: #88C057 !default;
-$royal:                           #9777A8 !default;
+$royal: #9777A8 !default;
 
 $base-color: #546979 !default;
 $menu-bg: #38454F !default;
@@ -117,12 +117,12 @@ $item-padding: 12px !default;
   background-image: url('../img/avatar-bg.svg');
   position: relative;
 }
-.avatar-bg .user-avatar-large{
+
+.avatar-bg .user-avatar-large {
   position: absolute;
   left: 15px;
   top: 15px;
 }
-
 
 .user-avatar {
   width: 70px;
@@ -270,7 +270,8 @@ $item-padding: 12px !default;
   bottom: 0;
   position: absolute;
 }
-#landing .button-bar .button{
+
+#landing .button-bar .button {
   border: none;
 }
 
@@ -342,7 +343,8 @@ $item-padding: 12px !default;
   border: 1px solid #ffffff;
   color: #ffffff;
 }
-.btn-call:before{
+
+.btn-call:before {
   line-height: 60px !important;
 }
 
@@ -532,7 +534,7 @@ $item-padding: 12px !default;
   content: "";
   position: absolute;
   top: 35px;
-  bottom:35px;
+  bottom: 35px;
   left: 21px;
   width: 1px;
   border-left: 1px solid #D8D8D8;
@@ -618,22 +620,36 @@ $item-padding: 12px !default;
 .tab-item:last-child {
   border-right: none;
 }
-.header-button{
+
+.header-button {
   opacity: .5;
   //background-color: rebeccapurple;
   width: 66px;
   height: 66px;
   position: absolute;
 }
-.user-landing{
+
+.user-landing {
   background-color: $positive;
   color: white;
 }
-.user-landing img{
-  width:80px;
+
+.user-landing img {
+  width: 80px;
   height: auto;
 }
-.bar-header{
+
+.bar-header {
   border: none;
   background-image: none !important;
+}
+
+.no-apply img {
+  width: 80px;
+  height: auto;
+}
+
+.no-apply .no-apply-des {
+  font-size: 12px;
+  color: #A6AFB6;
 }
