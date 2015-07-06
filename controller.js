@@ -93,6 +93,7 @@ angular.module('app.controllers', [])
             $http.post(apiEndpoint + "pass-list", {'openId':$rootScope.user.openId}).
                 success(function(data, status, headers, config) {
                     if($rootScope.user.userRole == 2){
+                        console.log(data.data);
                         $scope.passList = data.data;
                         $scope.firstPass = data.data[0];
                     }
