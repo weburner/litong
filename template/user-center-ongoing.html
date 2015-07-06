@@ -1,12 +1,19 @@
-<ion-content delegate-handle="tab-1-content" header-shrink-button-group scroll-event-interval="5" class="no-header" scrollbar-y="false">
+<ion-content delegate-handle="tab-1-content" header-shrink-button-group scroll-event-interval="5" class="no-header"
+             scrollbar-y="false">
     <div style="height: 270px;"></div>
     <ion-list>
-        <ion-item ng-repeat="pass in passList | filter:{ passStatus: 2 }" class="item-avatar item-icon-right border-bottom-half" nav-direction="forward" ui-sref="{{ pass.passUser.name ? 'manageUser({id:pass.passId})' : 'invitationUser({id:pass.passId})' }}">
+        <ion-item ng-repeat="pass in passList | filter:{ passStatus: 2 }"
+                  class="item-avatar item-icon-right border-bottom-half" nav-direction="forward"
+                  ui-sref="{{ pass.passUser.name ? 'manageUser({id:pass.passId})' : 'invitationUser({id:pass.passId})' }}">
             <img ng-if="pass.passUser.name" ng-src="{{pass.passUser.avatar}}">
             <img ng-if="!pass.passUser.name" ng-src="img/avatar.svg">
-            <h2 ng-if="pass.passUser.name"class="item-title">{{pass.passUser.name}}</h2>
+
+            <h2 ng-if="pass.passUser.name" class="item-title">{{pass.passUser.name}}</h2>
+
             <h2 ng-if="!pass.passUser.name" class="item-title">未回复的邀请</h2>
-            <p class="item-sub-title">{{pass.passValFrom * 1000 | date:'MM/dd HH:mm'}}-{{pass.passValTo * 1000 | date:'HH:mm'}}</p>
+
+            <p class="item-sub-title">{{pass.passValFrom * 1000 | date:'MM/dd HH:mm'}}-{{pass.passValTo * 1000 |
+                date:'HH:mm'}}</p>
             <img src="img/ongoing-icon.svg" class="icon" style="width: 20px; right:20px;"/>
         </ion-item>
     </ion-list>
