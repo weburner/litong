@@ -51,7 +51,7 @@ angular.module('app.controllers', [])
 
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams){
-                if(fromState.name == 'manageUser' && toState.name == 'userCenter.tabs.visitor'){
+                if(toState.name == 'userCenter.tabs.visitor' || toState.name == 'userCenter.tabs.ongoing'){
                     if($rootScope.user){
                         getPassList();
                     }
@@ -402,6 +402,7 @@ angular.module('app.controllers', [])
                     else
                     {
                         $scope.card = data.data;
+                        $scope.cardStatus = data.statusMsg;
                     }
                 }).
                 error(function(data, status, headers, config) {

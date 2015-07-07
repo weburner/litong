@@ -46,6 +46,9 @@
             <button menu-toggle="left" class="button button-clear">
                 <img src="img/menu-icon.svg" class="nav-icon">
             </button>
+            <a ng-if="user.userRole == 1 && !isLanding" class="button button-clear layer-top" ng-click="goBackHistory()">
+                <img src="img/icon-arrow-back.svg" class="nav-icon">
+            </a>
             <div class="title" style="height: 100%;">
                 <h4 class="header-title">{{user.name}} <span ng-if="user.userRole == 2">的访问记录</span></h4>
                 <div class="row row-center user-center-header-row" style="height: 205px;padding-bottom: 30px;">

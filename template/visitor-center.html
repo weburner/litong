@@ -4,8 +4,8 @@
         <ion-item ng-repeat="pass in passList" class="item-avatar item-icon-right border-bottom-half" nav-direction="forward" ui-sref="qrCardVisitor({id:pass.passId})">
             <img ng-if="pass.passStatus != 1" class="status-dot" src="img/wating-dot.svg">
             <img ng-if="pass.passStatus == 1" class="status-dot" src="img/visited-dot.svg">
-            <h2 class="item-title">{{pass.passCompany}}</h2>
-            <p class="item-sub-title">{{pass.passValFrom * 1000 | date:'MM/dd HH:mm'}}-{{pass.passValTo * 1000 | date:'HH:mm'}}</p>
+            <h2 class="item-title">{{pass.passSender.name}} | {{pass.passValFrom * 1000 | date:'MM/dd HH:mm'}}-{{pass.passValTo * 1000 | date:'HH:mm'}}</h2>
+            <p class="item-sub-title"> {{pass.passCompany}}</p>
         </ion-item>
 
     </ion-list>

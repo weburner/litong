@@ -427,8 +427,10 @@ $item-padding: 12px !default;
 }
 
 .item-des {
+  width: 150px;
   font-size: 12px;
   opacity: .6;
+  margin: 10px auto;
 }
 
 #qr-card-user .item-des {
