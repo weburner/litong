@@ -9157,13 +9157,15 @@ a.button {
   background-color: transparent; }
 
 .item-des {
-  width: 150px;
   font-size: 12px;
-  opacity: .6;
-  margin: 10px auto; }
+  opacity: .6; }
 
 #qr-card-user .item-des {
   margin-top: 5px; }
+
+.small-width-item {
+  width: 150px;
+  margin: 10px auto; }
 
 .qr-big {
   width: 95%;

@@ -604,7 +604,7 @@ angular.module('app.controllers', [])
                         wx.onMenuShareAppMessage({
                             title: $scope.card.passSender.name + "邀请你访问",
                             desc: $scope.card.passSender.name + "为您创建了访问请求，请点击填写资料获取您的门禁凭证",
-                            link: "http://weixin.leatop.com/leatop/wechat_b/#/invitation-visitor-reply/" + $stateParams.id,
+                            link: "http://weixin.leatop.com/leatop/top/share-in.php?passid=" + $stateParams.id,
                             imgUrl: "http://weixin.leatop.com/leatop/wechat_b/img/share-wx.png"
                         });
                     }
