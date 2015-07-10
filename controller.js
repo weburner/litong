@@ -12,9 +12,9 @@ angular.module('app.controllers', [])
         $scope.goBackHistory = function(){
             $window.history.back();
         };
-//        if(!window || !window.weixinData || !window.weixinData.nickname){
-//            $location.path('/follow-visitor');
-//        }
+        if(!window || !window.weixinData || !window.weixinData.nickname){
+            $location.path('/follow-visitor');
+        }
     })
     .controller('LandingCtrl', function(userInfoService, $rootScope, $scope){
         if(!$rootScope.user){
@@ -95,7 +95,13 @@ angular.module('app.controllers', [])
                     if($rootScope.user.userRole == 2){
                         console.log(data.data);
                         $scope.passList = data.data;
-                        $scope.firstPass = data.data[0];
+                        if(data.data.length == 0){
+                            $scope.firstPass = 0;
+                        }
+                        else{
+                            $scope.firstPass = data.data[0];
+                        }
+
                     }
                 }).
                 error(function(data, status, headers, config) {

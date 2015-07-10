@@ -55,7 +55,8 @@
                     <div class="col" style="position: relative;">
 
                         <a ui-sref="qrCardUser" ng-if="user.userRole == 1 && !isLanding" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
-                        <a  ui-sref="qrCardVisitor({id:firstPass.passId})" ng-if="user.userRole == 2" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
+                        <a  ng-if="firstPass" ui-sref="qrCardVisitor({id:firstPass.passId})" ng-if="user.userRole == 2" nav-direction="forward" style="background-image: url(img/qr-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
+                        <a  ng-if="!firstPass" href="http://weixin.leatop.com/leatop/shop/mycoupon.php" ng-if="user.userRole == 2" nav-direction="forward" style="background-image: url(img/lable-icon.svg);background-size: 14px 14px;"  class="round-button margin-center cover-image"></a>
                     </div>
                     <div class="col-100" style="position: relative;">
                         <div class="avatar avatar-bg cover-image">
